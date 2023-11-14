@@ -12,7 +12,7 @@ function AppRoutes({currUser, setCurrUser}) {
     
     return (
         <Routes>
-            <Route path="/" element={<BookingHomepage />} /> 
+            <Route path="/" index element={<BookingHomepage />} /> 
             {currUser && currUser.admin ? (
                 <>
                     <Route path="/bookings" element={<BookingsList />} /> 
