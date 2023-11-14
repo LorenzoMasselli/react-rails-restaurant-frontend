@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130" height="130" viewBox="0 0 130 130" xml:space="preserve">
+  <style>
+    .book-now-text tspan {
+      fill: white;
+      font-family: sans-serif;
+      letter-spacing: 0.33px;
+    }
+  </style>
+  <path class="book-now-external-circle" fill="#171C8F" d="M130 65c0 35.9-29.1 65-65 65S0 100.9 0 65 29.1 0 65 0s65 29.1 65 65z"></path>
+  <path class="book-now-internal-circle" fill="#FF6A39" d="M99 65c0 18.8-15.2 34-34 34S31 83.8 31 65s15.2-34 34-34 34 15.2 34 34z"></path>
+  <g class="book-now-text">
+    <path id="SVGID_x5F_1_x5F_" fill="none" d="M107.5 65c0 23.5-19 42.5-42.5 42.5S22.5 88.5 22.5 65s19-42.5 42.5-42.5 42.5 19 42.5 42.5z"></path>
+    <text>
+      <textPath xlink:href="#SVGID_x5F_1_x5F_" startOffset="0%">
+        <tspan>BURGERS  •  SEAFOOD  •   PIZZAS •</tspan>
+      </textPath>
+    </text>
+  </g>
+</svg>
