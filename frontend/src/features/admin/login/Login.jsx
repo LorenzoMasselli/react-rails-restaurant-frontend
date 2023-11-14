@@ -44,9 +44,9 @@ const Login = ({setCurrUser, setShow}) =>{
       <div className="login-form-container">
         <h2 className="login-title">Admin Login</h2>
         <form ref={formRef} onSubmit={handleSubmit}>
-          <input type="email" name='email' placeholder="email" className="login-input"/>
+          <input type="email" name='email' placeholder="email" className="login-input" defaultValue="user1@test.com"/>
           <br/>
-          <input type="password" name='password' placeholder="password" className="login-input"/>
+          <input type="password" name='password' placeholder="password" className="login-input" defaultValue="password"/>
           <br/>
           <input type='submit' value="Login"  className="login-button"/>
         </form>
