@@ -13,7 +13,7 @@ function AppRoutes({currUser, setCurrUser}) {
     return (
         <Routes>
             <Route path="/" index element={<BookingHomepage />} /> 
-            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage />} /> 
+            <Route path="/react-rails-restaurant-frontend/" element={<BookingHomepage />} /> 
             {currUser && currUser.admin ? (
                 <>
                     <Route path="/bookings" element={<BookingsList />} /> 
