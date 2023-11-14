@@ -1,0 +1,89 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Poppins,sans-serif;
+    background-color: #171C8F;
+}
+.navbar-title {
+    color: white;
+    font-family: 'Potta One';
+    font-size: 30px;
+    margin-left: 40px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.navbar-title:hover {
+    color: white;
+}
+
+.navbar div {
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+.navbar-links {
+    display: flex;
+    margin-top: 15px;
+}
+
+.booking-link-text {
+    display: inline-block;
+    white-space: nowrap;
+    color: #FF6A39 ;
+    font-weight: 600;
+    animation-delay: 50ms;
+}
+
+.booking-link-text:hover {
+    color: white;
+    font-weight: 700;
+    animation-delay: 50ms;
+    text-decoration:#FF6A39 underline ;
+}
+
+@keyframes shake {
+    0%, 20% { transform: rotate(0deg) }
+    37% { transform: rotate(0deg) }
+    37.5% { transform: rotate(-5deg) }
+    40% { transform: rotate(5deg) }
+    42.5% { transform: rotate(-5deg) }
+    45% { transform: rotate(5deg) }
+    47.5% { transform: rotate(-5deg) }
+    50% { transform: rotate(5deg) }
+    52.5% { transform: rotate(0deg) }
+    65%, 100% { transform: rotate(0deg) }
+  }
+  
+.shake {
+    animation: shake 5s ease-in-out infinite;
+}
+.booking-link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.booking-link svg:hover {
+    animation: shake 0.5s;
+}
+
+.booking-link svg {
+    color: white;
+    width: 100%;
+}
+
+
+
+.tripadvisor-logo {
+    width: 4.5rem;
+    /* background-color: #171C8F; */
+    border-radius: 12px;
+  }
+  .tripadvisor {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }

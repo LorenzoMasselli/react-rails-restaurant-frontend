@@ -1,0 +1,51 @@
+@media only screen and (min-width: 1325px) {
+    .image-beach-house {
+        width: 600px;
+        height: 400px;
+    }
+}
+@media only screen and (max-width: 1325px) and (min-width: 1124px)  {
+    .image-beach-house {
+        width: 500px;
+        height: 400px;
+    }
+}
+@media only screen and (max-width: 1124px)  {
+    .image-beach-house {
+        width: 80vw;
+        height: 40vh;
+    }
+}
+
+.image-beach-house {
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    margin-left: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position: relative;
+}
+
+
+.image-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.left-right-click {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.about-sticker {
+    width: 100px;
+    height: 100px;
+    color: black;
+    position: absolute;
+    right:-8%;
+    bottom: -10%;
+    animation: rotate 8s infinite linear;
+}

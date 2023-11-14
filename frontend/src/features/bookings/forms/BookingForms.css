@@ -1,0 +1,119 @@
+.form-container {
+    width: 500px;
+    height: 100%;
+    background-color: #EBECF0;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 12px;
+    color: black;
+}
+
+.form-container input {
+    color: black;
+}
+
+.align-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+#nameInput, #phoneInput, #emailInput, #noteInput {
+    margin-right: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: white;
+    border: 0;
+    margin-bottom: 20px;
+    outline: none;
+    color: black;
+
+    &:focus {
+        border-width: 0px;
+       } 
+}
+
+#name-input, #phone-input, #email-input, #date-input, #quantity-input, #time-input, #note-input, #confirmed-input {
+    margin-right: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: white;
+    border: 0;
+    margin-bottom: 20px;
+    outline: none;
+    color: black;
+
+    &:focus {
+        border-width: 0px;
+       } 
+}
+
+#dateInput {
+    margin-right: 8px;
+    width: 200px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 320px;
+    padding: 16px;
+    /* background-color: white; */
+    border: 0;
+    margin-bottom: 20px;
+    outline: none;
+    color: #757575;
+}
+
+
+#timeInput, #quantityInput {
+    margin-right: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: white;
+    border: 0;
+    margin-bottom: 20px;
+    color:#757575;
+    outline: none;
+}
+
+
+.form-button {
+    border: 0;
+    outline: 0;
+    border-radius: 320px;
+    padding: 16px;
+    background-color:#171C8F;
+    color: white;
+    font-weight: 600;      
+}
+
+.form-button:hover {
+    border: 0px;
+}
+
+
+.date-time {
+    display: flex;
+    justify-content: space-between;
+    gap: 37px;
+}
+
+.date-time-edit {
+    display: flex;
+    justify-content: space-between;
+}
