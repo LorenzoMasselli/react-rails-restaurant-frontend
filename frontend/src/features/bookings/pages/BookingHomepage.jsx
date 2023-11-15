@@ -42,7 +42,6 @@ function BookingHomepage() {
                     <div><a href='tel:2302632599' target='blank'>📞:(230)2632599</a></div>
                     <div><a href='https://wa.me/23054886740' target='blank'>T:(230)54886740</a></div>   
                 </div>
-
             </div>
             <div className='menu-home'>
                 <h3>
