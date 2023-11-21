@@ -38,7 +38,6 @@ function NewBookingForm({currUser, setCurrUser}) {
 
         if (response.ok) {
             const { id} = await response.json()
-            console.log(currUser)
             if (currUser && currUser.admin) {
                 navigate(`/bookings/${id}`)
             } else {
