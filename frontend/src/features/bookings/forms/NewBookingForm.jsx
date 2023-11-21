@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './BookingForms.css'
 
 
-function NewBookingForm() {
+function NewBookingForm({currUser, setCurrUser}) {
     const [name, setName] = useState("")
     const [quantity, setQuantity] = useState("")
     const [phone, setPhone] = useState("")
@@ -37,8 +37,8 @@ function NewBookingForm() {
         })
 
         if (response.ok) {
-            const { id, admin } = await response.json()
-            if (admin) {
+            const { id} = await response.json()
+            if (currUser.admin) {
                 navigate(`/bookings/${id}`)
             } else {
                 navigate(`/`)

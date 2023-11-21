@@ -21,7 +21,7 @@ function AppRoutes({currUser, setCurrUser}) {
                     <Route path="/bookings/:id/edit" element={<BookingEditForm />} /> 
                 </>
             ): null}
-            <Route path="/new" element={<NewBookingForm />} /> 
+            <Route path="/new" element={<NewBookingForm currUser={currUser} setCurrUser={setCurrUser} />} /> 
             <Route path="/admin" element={ <User currUser={currUser} setCurrUser={setCurrUser} />} /> 
         </Routes>
     )
