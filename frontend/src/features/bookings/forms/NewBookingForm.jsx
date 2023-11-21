@@ -37,8 +37,12 @@ function NewBookingForm() {
         })
 
         if (response.ok) {
-            const { id } = await response.json()
-            navigate(`/bookings/${id}`)
+            const { id, admin } = await response.json()
+            if (admin) {
+                navigate(`/bookings/${id}`)
+            } else {
+                navigate(`/`)
+            }
         } else {
             console.log("An error occured")
         }
