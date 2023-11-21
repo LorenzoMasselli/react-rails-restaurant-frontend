@@ -41,6 +41,7 @@ function NewBookingForm({currUser, setCurrUser}) {
             if (currUser.admin) {
                 navigate(`/bookings/${id}`)
             } else {
+                console.log(currUser)
                 navigate(`/`)
             }
         } else {
