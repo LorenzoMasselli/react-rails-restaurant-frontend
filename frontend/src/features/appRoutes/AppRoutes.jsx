@@ -7,14 +7,13 @@ import NewBookingForm from '../bookings/forms/NewBookingForm'
 import BookingEditForm from '../bookings/forms/BookingEditForm';
 import BookingHomepage from '../bookings/pages/BookingHomepage'
 import User from '../admin/user/User'
-import NewHomePage from '../bookings/pages/NewHomePage';
 
-function AppRoutes({currUser, setCurrUser, handleTitleAtTopChange, isTitleAtTop, handleAboutAtTopChange }) {
+function AppRoutes({currUser, setCurrUser}) {
     
     return (
         <Routes>
             <Route path="/" index element={<BookingHomepage />} /> 
-            <Route path="/react-rails-restaurant-frontend/" element={<NewHomePage handleTitleAtTopChange={handleTitleAtTopChange} isTitleAtTop={isTitleAtTop} handleAboutAtTopChange={handleAboutAtTopChange}/>}/> 
+            <Route path="/react-rails-restaurant-frontend/" element={<BookingHomepage />} /> 
             {currUser && currUser.admin ? (
                 <>
                     <Route path="/bookings" element={<BookingsList />} /> 

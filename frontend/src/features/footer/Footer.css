@@ -75,6 +75,10 @@
 body::-webkit-scrollbar {
     display: none;
   }
+body {
+    background-color: #FFFFFF;
+    color: black;
+}
 .footer-icons {
     display: flex;
     justify-content: center;
