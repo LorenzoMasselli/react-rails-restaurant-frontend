@@ -19,7 +19,7 @@ function Navbar({currUser, setCurrUser}) {
                 <div>
                     {currUser && currUser.admin ? (
                         <>
-                            <Link to="/bookings" className='booking-link'>
+                            <Link to="/react-rails-restaurant-frontend/bookings" className='booking-link'>
                                 <FontAwesomeIcon icon={faRectangleList} size="2xl"/>
                                 <span className='booking-link-text'>All bookings</span>
                             </Link>
@@ -27,7 +27,7 @@ function Navbar({currUser, setCurrUser}) {
                     ): null}
                 </div>
                 <div>
-                    <Link to="/new" className='booking-link shake'>
+                    <Link to="/react-rails-restaurant-frontend/new" className='booking-link shake'>
                         <FontAwesomeIcon icon={faCalendarDays} size="2xl"/>
                         <span className='booking-link-text' >Book now</span>
                     </Link>
