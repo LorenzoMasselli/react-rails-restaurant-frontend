@@ -12,17 +12,16 @@ function AppRoutes({currUser, setCurrUser}) {
     
     return (
         <Routes>
-            <Route path="/" index element={<BookingHomepage />} /> 
-            <Route path="/react-rails-restaurant-frontend/" element={<BookingHomepage />} /> 
+            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage />} /> 
             {currUser && currUser.admin ? (
                 <>
-                    <Route path="/bookings" element={<BookingsList />} /> 
-                    <Route path="/bookings/:id" element={<BookingDetails />} /> 
-                    <Route path="/bookings/:id/edit" element={<BookingEditForm />} /> 
+                    <Route path="/react-rails-restaurant-frontend/bookings" element={<BookingsList />} /> 
+                    <Route path="/react-rails-restaurant-frontend/bookings/:id" element={<BookingDetails />} /> 
+                    <Route path="/react-rails-restaurant-frontend/bookings/:id/edit" element={<BookingEditForm />} /> 
                 </>
             ): null}
-            <Route path="/new" element={<NewBookingForm currUser={currUser} setCurrUser={setCurrUser} />} /> 
-            <Route path="/admin" element={ <User currUser={currUser} setCurrUser={setCurrUser} />} /> 
+            <Route path="/react-rails-restaurant-frontend/new" element={<NewBookingForm currUser={currUser} setCurrUser={setCurrUser} />} /> 
+            <Route path="/react-rails-restaurant-frontend/admin" element={ <User currUser={currUser} setCurrUser={setCurrUser} />} /> 
         </Routes>
     )
 }
