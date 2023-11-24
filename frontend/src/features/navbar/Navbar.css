@@ -1,31 +1,82 @@
+:root {
+    --titleDisplay: flex;
+    --fontColor: white;
+}
+
 .navbar {
+    width: 100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+.navbar-title {
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 20px;
+    margin: 0;
+    padding-top: 9px;
+    color: var(--fontColor);
+}
+
+.navbar-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: Poppins,sans-serif;
-    background-color: #171C8F;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
 }
-.navbar-title {
-    color: white;
-    font-family: 'Potta One';
-    font-size: 30px;
-    margin-left: 40px;
-    display: inline-block;
+
+.navbar-info {
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+.image-flexbox, .navbar-links {
+    flex-grow: 1;
+    flex-basis: 0;
+ }
+
+.navbar-info a {
+    /* color: black; */
+    font-weight: 700;
+    color: var(--fontColor);
+}
+
+.navbar-contact {
+    display: flex;
     white-space: nowrap;
+    gap: 20px;
 }
+
+
+.numbers {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
 
 .navbar-title:hover {
-    color: white;
+    /* color: white; */
 }
 
-.navbar div {
-    margin-left: 30px;
-    margin-right: 40px;
-}
 
 .navbar-links {
     display: flex;
-    margin-top: 15px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-top: 5px;
 }
 
 .booking-link-text {
@@ -37,7 +88,7 @@
 }
 
 .booking-link-text:hover {
-    color: white;
+    /* color: white; */
     font-weight: 700;
     animation-delay: 50ms;
     text-decoration:#FF6A39 underline ;
@@ -63,27 +114,21 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 10px;
 }
 
 .booking-link svg:hover {
     animation: shake 0.5s;
+    /* color: var(--fontColor); */
 }
 
 .booking-link svg {
-    color: white;
-    width: 100%;
+    /* color: black; */
+    width: 100%;  
+    color: var(--fontColor);
 }
 
-
-
-.tripadvisor-logo {
-    width: 4.5rem;
-    /* background-color: #171C8F; */
-    border-radius: 12px;
-  }
-  .tripadvisor {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
+.tripadvisor-logo-home {
+    width: 40px;
+    border-radius: 8px;
+    margin-top: 2px;
+}
