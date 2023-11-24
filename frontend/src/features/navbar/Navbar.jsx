@@ -3,8 +3,9 @@ import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDays, faRectangleList } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarDays, faRectangleList, faBook } from '@fortawesome/free-solid-svg-icons'
 import tripAdvisor from './tripadvisor-choice-award.png'
+import menu from '../bookings/menu/beach-house-menu.pdf'
 
 // eslint-disable-next-line react/prop-types
 function Navbar({currUser, setCurrUser, isTitleAtTop, isTALogoTop, scroll}) {
@@ -32,10 +33,16 @@ function Navbar({currUser, setCurrUser, isTitleAtTop, isTALogoTop, scroll}) {
                             </>
                         ): null}
                     </div>
-                    <div>
+                    <div className='navbar-links-flex'>
+                        <a href={menu} target='blank' className='booking-link'>
+                            <FontAwesomeIcon icon={faBook} size="2xl" />
+                            <span className='booking-link-text' >Menu</span>
+                        </a>
+                    </div>
+                    <div className='navbar-links-flex'>
                         <Link to="/react-rails-restaurant-frontend/new" className='booking-link shake'>
                             <FontAwesomeIcon icon={faCalendarDays} size="2xl"/>
-                            <span className='booking-link-text' >Book now</span>
+                            <span className='booking-link-text' >Book</span>
                         </Link>
                     </div>
                 </div>
