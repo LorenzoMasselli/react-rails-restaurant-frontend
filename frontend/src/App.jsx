@@ -8,13 +8,22 @@ import Footer from "./features/footer/Footer.jsx"
 
 function App() {
   const [currUser, setCurrUser]=useState(null);
+  const [isTitleAtTop, setIsTitleAtTop] = useState(false);
+  const [isTALogoTop, setIsTALogoAtTop] = useState(false);
+
+  const handleTitleAtTopChange = (value) => {
+    setIsTitleAtTop(value);
+  };
+  const handleTALogoAtTopChange = (value) => {
+    setIsTALogoAtTop(value);
+  };
 
   return (
     <Router>
       <div className="app">
-        <Navbar currUser={currUser} setCurrUser={setCurrUser}/>
+        <Navbar currUser={currUser} setCurrUser={setCurrUser} isTitleAtTop={isTitleAtTop} isTALogoTop={isTALogoTop} />
         <div className="app-body">
-          <AppRoutes currUser={currUser} setCurrUser={setCurrUser} />
+          <AppRoutes currUser={currUser} setCurrUser={setCurrUser} isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange} handleTALogoAtTopChange={handleTALogoAtTopChange} isTALogoTop={isTALogoTop} />
         </div>
         <Footer />
       </div>

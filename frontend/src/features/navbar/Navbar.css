@@ -1,17 +1,14 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Poppins,sans-serif;
-    background-color: #171C8F;
+position: fixed;
+display: flex;
+justify-content: space-between;
+width: 100vw;
+backdrop-filter: blur(4px);
 }
 .navbar-title {
-    color: white;
-    font-family: 'Potta One';
-    font-size: 30px;
-    margin-left: 40px;
-    display: inline-block;
-    white-space: nowrap;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 25px;
+    padding-top: 35px;
 }
 
 .navbar-title:hover {
@@ -26,6 +23,7 @@
 .navbar-links {
     display: flex;
     margin-top: 15px;
+    justify-content: flex-end;
 }
 
 .booking-link-text {
@@ -82,8 +80,14 @@
     /* background-color: #171C8F; */
     border-radius: 12px;
   }
-  .tripadvisor {
+
+.navbar-1 {
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    justify-content: center;
-  }
+}
+
+.tripadvisor, .navbar-links {
+    flex-grow: 1;
+   flex-basis: 0;
+}

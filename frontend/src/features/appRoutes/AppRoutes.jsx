@@ -8,11 +8,11 @@ import BookingEditForm from '../bookings/forms/BookingEditForm';
 import BookingHomepage from '../bookings/pages/BookingHomepage'
 import User from '../admin/user/User'
 
-function AppRoutes({currUser, setCurrUser}) {
+function AppRoutes({currUser, setCurrUser, isTitleAtTop, handleTitleAtTopChange, handleTALogoAtTopChange, isTALogoTop}) {
     
     return (
         <Routes>
-            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage />} /> 
+            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange} handleTALogoAtTopChange={handleTALogoAtTopChange} isTALogoTop={isTALogoTop}/> } /> 
             {currUser && currUser.admin ? (
                 <>
                     <Route path="/react-rails-restaurant-frontend/bookings" element={<BookingsList />} /> 

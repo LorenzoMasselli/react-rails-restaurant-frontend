@@ -1,0 +1,51 @@
+:root {
+    --height: -40px;
+    --size: 180px;
+    --width: 180px;
+    --logo: 0px;
+}
+
+.home {
+    
+}
+
+.home-1 {
+    height: 120vh;
+    background-image: url('./images/sea-view.jpg');
+    background-position: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-1-welcome {
+    margin: 0;
+    font-family: 'Luckiest Guy', cursive;
+}
+.home-1-title {
+    margin: 0;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: var(--size);
+}
+
+.home-1-moving-text {
+   position: absolute;
+   bottom: var(--height);
+}
+
+.home-1-tripadvisor {
+    width: var(--width);
+    margin-bottom: 40px;
+}
+
+.home-1-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+.home-1-tripadvisor-container {
+    width: 100%;
+    display: flex;
+    justify-content:center ;
+}
