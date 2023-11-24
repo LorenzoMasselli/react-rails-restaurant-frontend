@@ -3,12 +3,11 @@ position: fixed;
 display: flex;
 justify-content: space-between;
 width: 100vw;
-backdrop-filter: blur(4px);
 }
 .navbar-title {
     font-family: 'Luckiest Guy', cursive;
     font-size: 25px;
-    padding-top: 35px;
+    padding-top: 30px;
 }
 
 .navbar-title:hover {
@@ -77,8 +76,8 @@ backdrop-filter: blur(4px);
 
 .tripadvisor-logo {
     width: 4.5rem;
-    /* background-color: #171C8F; */
     border-radius: 12px;
+    transition: 1s opacity ease-in;
   }
 
 .navbar-1 {
