@@ -8,13 +8,27 @@ import Footer from "./features/footer/Footer.jsx"
 
 function App() {
   const [currUser, setCurrUser]=useState(null);
+  const [isTitleAtTop, setIsTitleAtTop] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [scroll, setScroll] = useState(0)
+  const [isHomeTwoAtTop, setIsHomeTwoAtTop] = useState(false)
+
+  const handleTitleAtTopChange = (value) => {
+    setIsTitleAtTop(value);
+  };
+  const handleScrollPosition = (value) => {
+    setScroll(value);
+  };
+  const handleHomeTwoAtTopChange = (value) => {
+    setIsHomeTwoAtTop(value);
+  };
 
   return (
     <Router>
       <div className="app">
-        <Navbar currUser={currUser} setCurrUser={setCurrUser}/>
+        <Navbar currUser={currUser} isTitleAtTop={isTitleAtTop} isHomeTwoAtTop={isHomeTwoAtTop}/>
         <div className="app-body">
-          <AppRoutes currUser={currUser} setCurrUser={setCurrUser} />
+          <AppRoutes currUser={currUser} setCurrUser={setCurrUser} isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange} handleScrollPosition={handleScrollPosition} handleHomeTwoAtTopChange={handleHomeTwoAtTopChange}/>
         </div>
         <Footer />
       </div>

@@ -1,12 +1,11 @@
 .form-container {
-    width: 500px;
+    width: 40vw;
     height: 100%;
-    background-color: #EBECF0;
     padding: 30px;
-    margin: 30px;
     border-radius: 12px;
-    color: black;
 }
+
+
 
 .form-container input {
     color: black;
@@ -16,7 +15,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 80px;
+    position: relative;
+    z-index: -1;
+
 }
 
 #nameInput, #phoneInput, #emailInput, #noteInput {
@@ -97,23 +99,39 @@
     outline: 0;
     border-radius: 320px;
     padding: 16px;
-    background-color:#171C8F;
+    background-color:#009BAB;
     color: white;
-    font-weight: 600;      
+    font-weight: 600;
+    background-color: white;
+    color: #009BAB;
+    outline: 1px solid #009BAB;
 }
 
 .form-button:hover {
-    border: 0px;
+    background-color:#009BAB;
+    color: white;
 }
 
 
 .date-time {
     display: flex;
     justify-content: space-between;
-    gap: 37px;
+    flex-wrap: wrap;
 }
+
 
 .date-time-edit {
     display: flex;
     justify-content: space-between;
+}
+
+.form-container-heading {
+    color: white;
+    text-align: center;
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

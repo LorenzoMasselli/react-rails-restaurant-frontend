@@ -1,38 +1,51 @@
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useEffect} from 'react';
+import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDays, faRectangleList } from '@fortawesome/free-solid-svg-icons'
-import tripAdvisor from './tripadvisor-choice-award.png'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import menu from '../bookings/menu/beach-house-menu.pdf'
 
-function Navbar({currUser, setCurrUser}) {
-   
+// eslint-disable-next-line react/prop-types
+function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
+    const { pathname } = useLocation();
+
     
     return (
-        <nav className='navbar'>
-            <Link to="/" className='navbar-title'>The BeachHouse</Link>
-            <div className='tripadvisor'>
-                <img src={tripAdvisor} alt="Tripadvisor Choice Award 2023" className='tripadvisor-logo'/>
-            </div>
-            <div className='navbar-links'>
-                <div>
-                    {currUser && currUser.admin ? (
-                        <>
-                            <Link to="/react-rails-restaurant-frontend/bookings" className='booking-link'>
-                                <FontAwesomeIcon icon={faRectangleList} size="2xl"/>
-                                <span className='booking-link-text'>All bookings</span>
-                            </Link>
-                        </>
-                    ): null}
+        <nav className='navbar' >
+            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "black": pathname !== "/react-rails-restaurant-frontend/" ? "black" : "rgba(0, 0, 0, 0)"}}>
+                <div className='navbar-1-left'>
+                    <div className='navbar-1-contacts'>
+                        <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='m'/> (230) 2632599</a>
+                        <a href='https://wa.me/23054886740' target='blank'><FontAwesomeIcon icon={faWhatsapp} style={{color: "#0FBA18",}} size='lg'/> <span> (230) 54886740</span></a>
+                        <p>Mon-Sun 12:00 - 22:00 </p>
+                    </div>
                 </div>
-                <div>
-                    <Link to="/react-rails-restaurant-frontend/new" className='booking-link shake'>
-                        <FontAwesomeIcon icon={faCalendarDays} size="2xl"/>
-                        <span className='booking-link-text' >Book now</span>
-                    </Link>
+                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/" ? "block" : "none"}}>The Beach House</Link>
+                <div className='navbar-links'>
+                    <div>
+                        {currUser && currUser.admin ? (
+                            <>
+                                <Link to="/react-rails-restaurant-frontend/bookings" className='booking-link'>
+                                    <span className='booking-link-text'>All bookings</span>
+                                </Link>
+                            </>
+                        ): null}
+                    </div>
+                    <div className='navbar-links-flex'>
+                        <a href={menu} target='blank' className='booking-link'>
+                            <span className='menu-link-text' >Menu</span>
+                        </a>
+                    </div>
+                    <div className='navbar-links-flex'>
+                        <Link to="/react-rails-restaurant-frontend/new" className='booking-link shake'>
+                            <button>Book</button>
+                        </Link>
+                    </div>
                 </div>
-            </div>
+            </section>
         </nav>
     )
 

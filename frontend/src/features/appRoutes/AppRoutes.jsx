@@ -8,11 +8,12 @@ import BookingEditForm from '../bookings/forms/BookingEditForm';
 import BookingHomepage from '../bookings/pages/BookingHomepage'
 import User from '../admin/user/User'
 
-function AppRoutes({currUser, setCurrUser}) {
+// eslint-disable-next-line react/prop-types
+function AppRoutes({currUser, setCurrUser, isTitleAtTop, handleTitleAtTopChange, handleScrollPosition, handleHomeTwoAtTopChange}) {
     
     return (
         <Routes>
-            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage />} /> 
+            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange}  handleScrollPosition={handleScrollPosition} handleHomeTwoAtTopChange={handleHomeTwoAtTopChange}/> } /> 
             {currUser && currUser.admin ? (
                 <>
                     <Route path="/react-rails-restaurant-frontend/bookings" element={<BookingsList />} /> 
