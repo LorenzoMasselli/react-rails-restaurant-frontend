@@ -297,7 +297,6 @@ button:disabled {
     margin-top: 180px;
     padding-left: 80px;
     position: relative;
-    z-index: -1;
  }
  .bookings-days {
      display: flex;

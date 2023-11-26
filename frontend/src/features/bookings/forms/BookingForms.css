@@ -17,8 +17,7 @@
     align-items: center;
     margin-top: 80px;
     position: relative;
-    z-index: -1;
-
+    z-index: 0;
 }
 
 #nameInput, #phoneInput, #emailInput, #noteInput {
@@ -60,6 +59,9 @@
         border-width: 0px;
        } 
 }
+#date-input {
+    color-scheme: light;
+}
 
 #dateInput {
     margin-right: 8px;
@@ -75,11 +77,9 @@
     margin-bottom: 20px;
     outline: none;
     color: #757575;
+    color-scheme: light;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator:before {
-    background-color: #ff00ff;
-  }
 
 
 #timeInput, #quantityInput {

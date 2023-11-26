@@ -18,7 +18,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
             <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "black": pathname !== "/react-rails-restaurant-frontend/" ? "black" : "rgba(0, 0, 0, 0)"}}>
                 <div className='navbar-1-left'>
                     <div className='navbar-1-contacts'>
-                        <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='m'/> (230) 2632599</a>
+                        <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='sm'/> (230) 2632599</a>
                         <a href='https://wa.me/23054886740' target='blank'><FontAwesomeIcon icon={faWhatsapp} style={{color: "#0FBA18",}} size='lg'/> <span> (230) 54886740</span></a>
                         <p>Mon-Sun 12:00 - 22:00 </p>
                     </div>

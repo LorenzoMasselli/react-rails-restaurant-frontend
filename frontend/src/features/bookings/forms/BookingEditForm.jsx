@@ -52,7 +52,7 @@ function BookingEditForm() {
 
             if (response.ok) {
                 const { id } = await response.json()
-                navigate(`/bookings/${id}`)
+                navigate(`/react-rails-restaurant-frontend/bookings/${id}`)
             } else {
                 throw response
             }
