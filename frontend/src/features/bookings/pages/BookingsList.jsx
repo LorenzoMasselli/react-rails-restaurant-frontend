@@ -28,7 +28,7 @@ function BookingItem({ booking, confirmBooking, deleteBooking }) {
         <Link to={`/bookings/${booking.id}`}>{booking.name} ({booking.quantity})</Link>
         <FontAwesomeIcon
           icon={faCircle}
-          style={{ color: booking.confirmed ? 'green' : 'red', position: 'absolute', top: '6px', left: '160px' }}
+          style={{ color: booking.confirmed ? 'green' : 'red', position: 'absolute', top: '6px', right: '9px' }}
         />
       </div>
       <h4 className='booking-time'>{booking.time}</h4>

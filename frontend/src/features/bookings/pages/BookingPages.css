@@ -294,9 +294,10 @@ button:disabled {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 40px;
+    margin-top: 180px;
     padding-left: 80px;
     position: relative;
+    z-index: -1;
  }
  .bookings-days {
      display: flex;
@@ -359,6 +360,7 @@ button:disabled {
      padding-bottom: 10px;
      background-color: #D9D9D9;
      height: 130px;
+     color: black;
  }
 
 .booking-activity {
@@ -431,11 +433,13 @@ button:disabled {
     color: white;
     margin-right: 10px;
     border-radius: 320px;
+    border: solid 1px #ffffff00;
 }
 
 .delete-button:hover {
     border: solid 1px rgb(182, 21, 21);
     background-color: rgb(182, 21, 21);
+    border: solid 1px #ffffff00;
 }
 
 .edit-button {
@@ -447,12 +451,14 @@ button:disabled {
     background-color: #171C8F;
     color: white;
     margin-right: 20px;
+    border: solid 1px #ffffff00;
 }
 
 .confirm-button:hover {
     background-color: rgb(14, 110, 14);
     border: solid 1px rgb(14, 110, 14);
     color: white;
+    border: solid 1px #ffffff00;
 }
 
 

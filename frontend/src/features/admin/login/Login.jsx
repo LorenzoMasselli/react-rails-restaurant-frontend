@@ -20,7 +20,7 @@ const Login = ({setCurrUser, setShow}) =>{
         if (response.ok) {
           localStorage.setItem("token", response.headers.get("Authorization"))
           setCurrUser(data)        
-          navigate('/bookings')
+          navigate('/react-rails-restaurant-frontend/bookings')
         } else {
           throw data.error
         }
