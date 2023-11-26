@@ -171,7 +171,7 @@ function BookingsList() {
           <h1>All bookings</h1>
           <h2 className='bookings-days'>Today <FontAwesomeIcon icon={todayIcon} className='booking-days-icon' onClick={toggleBookingTodayIcon}/></h2>
           <div className='all-bookings' style={{display: todayIcon === faChevronDown ? 'none' : 'flex'}}>
-            {todaysBookings.length === 0 (
+            {todaysBookings.length === 0 &&(
               <div>
                   <div className='no-bookings'>
                       <h2>No bookings for today </h2>
@@ -184,7 +184,7 @@ function BookingsList() {
           </div>
           <h2 className='bookings-days'>Tomorrow <FontAwesomeIcon icon={tomorrowIcon} className='booking-days-icon' onClick={toggleBookingTomorrowIcon}/></h2>
           <div className='all-bookings' style={{display: tomorrowIcon === faChevronDown ? 'none' : 'flex'}}>
-          {tomorrowBookings.length === 0 (
+          {tomorrowBookings.length === 0 &&(
               <div>
                   <div className='no-bookings'>
                       <h2>No bookings tomorrow </h2>
