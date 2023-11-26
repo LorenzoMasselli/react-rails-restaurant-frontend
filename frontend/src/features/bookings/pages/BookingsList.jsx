@@ -185,7 +185,7 @@ function BookingsList() {
           <div className='all-bookings' style={{display: tomorrowIcon === faChevronDown ? 'none' : 'flex'}}>
           {tomorrowBookings.length === 0 ? (
             <div className='no-bookings'>
-              <h2>No bookings for today </h2>
+              <h2>No bookings for tomorrow </h2>
             </div>
           ) : (
             tomorrowBookings.map((booking) => (
