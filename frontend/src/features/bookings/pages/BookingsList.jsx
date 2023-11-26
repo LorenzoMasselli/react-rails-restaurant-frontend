@@ -33,7 +33,7 @@ function BookingItem({ booking, confirmBooking, deleteBooking }) {
       </div>
       <h4 className='booking-time'>{booking.time}</h4>
       <div className='edit-delete'>
-        <Link to={`/react-rails-restaurant-frontend/bookings/bookings/${booking.id}/edit`}><button className='edit-button'>Edit</button></Link>
+        <Link to={`/react-rails-restaurant-frontend/bookings/${booking.id}/edit`}><button className='edit-button'>Edit</button></Link>
         {!booking.confirmed && (
           <button className='confirm-button ' onClick={() => confirmBooking(booking)}>Confirm</button>
         )}

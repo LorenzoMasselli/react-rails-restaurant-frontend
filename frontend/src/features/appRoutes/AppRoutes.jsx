@@ -19,6 +19,7 @@ function AppRoutes({currUser, setCurrUser, isTitleAtTop, handleTitleAtTopChange,
                     <Route path="/react-rails-restaurant-frontend/bookings" element={<BookingsList />} /> 
                     <Route path="/react-rails-restaurant-frontend/bookings/:id" element={<BookingDetails />} /> 
                     <Route path="/react-rails-restaurant-frontend/bookings/:id/edit" element={<BookingEditForm />} /> 
+    
                 </>
             ): null}
             <Route path="/react-rails-restaurant-frontend/new" element={<NewBookingForm currUser={currUser} setCurrUser={setCurrUser} />} /> 
