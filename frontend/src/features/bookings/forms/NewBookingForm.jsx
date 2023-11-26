@@ -49,9 +49,10 @@ function NewBookingForm({currUser, setCurrUser}) {
     }
 
     return (
+        
         <div className="align-form">
            <div className="form-container">
-           <h2>Request a new booking</h2>
+           <h2 className="form-container-heading">Request a new booking</h2>
            <form onSubmit={handleSubmit}>
                 <input type="hidden" name="confirmed" value={confirmed} />
                 <div className="name">
@@ -164,7 +165,7 @@ function NewBookingForm({currUser, setCurrUser}) {
                         placeholder="Dietary Restrictions / Reservation Notes"
                         />
                 </div>
-                <div>
+                <div className="button-div">
                     <button className="form-button" type="submit" disabled={!isValid}>Create a booking</button>
                 </div>
            </form>

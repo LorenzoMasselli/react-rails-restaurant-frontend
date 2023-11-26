@@ -1,16 +1,4 @@
-.home {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    top: 15px;
-    margin-top: 15px;
-    padding-top: 80px;
-    left: 0px;
-    padding-left: 40px;
-    padding-right: 40px;
-    position: relative;
 
-}
 .menu-home {
     display: flex;
     justify-content: center;
@@ -207,15 +195,7 @@
         background: linear-gradient(to bottom, white 80%, orange 80%);
     }
 }
-  
 
-svg {
-    fill: currentColor;
-    height: auto;
-    max-width: 66vmin;
-    transform-origin: center;
-    width: 66%;
-  }
 
   /* contact-cards //////////////////////////////////////////////////////////////////////////// */
   @media only screen and (max-width: 1124px)  {
