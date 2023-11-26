@@ -70,12 +70,16 @@
     -webkit-appearance: none;
     border-radius: 320px;
     padding: 16px;
-    /* background-color: white; */
+    background-color: white;
     border: 0;
     margin-bottom: 20px;
     outline: none;
     color: #757575;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator:before {
+    background-color: #ff00ff;
+  }
 
 
 #timeInput, #quantityInput {
