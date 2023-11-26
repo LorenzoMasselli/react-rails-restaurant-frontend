@@ -65,7 +65,7 @@ button:hover {
     background-color: #171d8e00;
     color: white;
     border: solid 1px white;
-    max-width: 140px;
+    /* max-width: 140px; */
     
   }
   button:hover {

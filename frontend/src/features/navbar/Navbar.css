@@ -4,12 +4,13 @@ display: flex;
 justify-content:center;
 width: 100vw;
 }
+
 .navbar-title {
     font-family: 'Archivo Black', sans-serif;
     font-size: 25px;
     padding-top: 20px;
+    text-decoration: none !important;
 }
-
 
 .navbar-links {
     display: flex;

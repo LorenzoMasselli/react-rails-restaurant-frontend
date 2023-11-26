@@ -22,10 +22,12 @@
 .footer-right {
     display: flex;
     padding: 40px;
+    padding-bottom: 0px;
 }
 
 .footer-left {
     padding: 40px;
+    padding-bottom: 0px;
 }
 .footer-right-contact {
     display: flex;

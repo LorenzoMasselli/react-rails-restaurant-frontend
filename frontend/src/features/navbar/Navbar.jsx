@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect} from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
@@ -10,12 +10,12 @@ import menu from '../bookings/menu/beach-house-menu.pdf'
 
 // eslint-disable-next-line react/prop-types
 function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
-   
+    const { pathname } = useLocation();
 
     
     return (
         <nav className='navbar' >
-            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "black": "rgba(0, 0, 0, 0)"}}>
+            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "black": pathname !== "/react-rails-restaurant-frontend/" ? "black" : "rgba(0, 0, 0, 0)"}}>
                 <div className='navbar-1-left'>
                     <div className='navbar-1-contacts'>
                         <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='m'/> (230) 2632599</a>
@@ -23,7 +23,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
                         <p>Mon-Sun 12:00 - 22:00 </p>
                     </div>
                 </div>
-                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block" : "none"}}>The Beach House</Link>
+                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/" ? "block" : "none"}}>The Beach House</Link>
                 <div className='navbar-links'>
                     <div>
                         {currUser && currUser.admin ? (
