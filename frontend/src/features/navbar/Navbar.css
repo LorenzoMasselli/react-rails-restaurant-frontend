@@ -1,17 +1,13 @@
 .navbar {
 position: fixed;
 display: flex;
-justify-content: space-between;
+justify-content:center;
 width: 100vw;
 }
 .navbar-title {
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Archivo Black', sans-serif;
     font-size: 25px;
-    padding-top: 30px;
-}
-
-.navbar-title:hover {
-    color: white;
+    padding-top: 20px;
 }
 
 
@@ -23,19 +19,8 @@ width: 100vw;
     gap: 30px;
 }
 
-.booking-link-text {
-    display: inline-block;
-    white-space: nowrap;
-    color: #FF6A39 ;
-    font-weight: 600;
-    animation-delay: 50ms;
-}
-
-.booking-link-text:hover {
-    color: white;
-    font-weight: 700;
-    animation-delay: 50ms;
-    text-decoration:#FF6A39 underline ;
+.menu-link-text:hover {
+   text-decoration: underline 2px white;
 }
 
 @keyframes shake {
@@ -52,7 +37,7 @@ width: 100vw;
   }
   
 .shake {
-    animation: shake 5s ease-in-out infinite;
+    animation: shake 3.5s ease-in-out infinite;
 }
 .booking-link {
     display: flex;
@@ -60,17 +45,6 @@ width: 100vw;
     flex-direction: column;
     margin-bottom: 10px;
 }
-
-.booking-link svg:hover {
-    animation: shake 0.5s;
-}
-
-.booking-link svg {
-    color: white;
-    width: 100%;
-}
-
-
 
 .tripadvisor-logo {
     width: 4.5rem;
@@ -84,14 +58,58 @@ width: 100vw;
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    transition: background-color 0.2s ease-in;
 }
 
-.tripadvisor, .navbar-links {
+.navbar-1-left, .navbar-links {
     flex-grow: 1;
    flex-basis: 0;
+}
+
+.navbar-1-left {
+    display: flex;
+    align-items: center;
 }
 
 .navbar-links-flex {
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.book-button {
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 24px;
+    color: black;
+}
+
+.book-button:hover {
+    color: white;
+    animation-delay: 50ms;
+    background-color: black;
+}
+
+.navbar-1-contacts{
+    display: flex;
+    flex-direction: column;
+    transition: 3s display ease-out;
+}
+.navbar-1-contacts a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar-1-contacts p, .navbar-1-contacts a  {
+    margin: 0px;
+    font-size: 12px;
+}
+
+@media (max-width: 740px) {
+    .navbar-1-left {
+        display: none;
+    }
+    
 }

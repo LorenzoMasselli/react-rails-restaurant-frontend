@@ -1,13 +1,14 @@
 :root {
-    --height: -40px;
+    --height: 0px;
     --size: 180px;
-    --width: 180px;
+    /* --width: 180px;
     --logo: 0px;
+    --heightTA: 40px; */
 }
 
 .home-1 {
-    height: 100vh;
-    background-image: url('./images/sea-view.jpg');
+    height: 130vh;
+    background-image: url('./images/seafood.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -15,65 +16,109 @@
 
 .home-1-welcome {
     margin: 0;
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Archivo Black', sans-serif;
 }
 .home-1-title {
     margin: 0;
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Archivo Black', sans-serif;
     font-size: var(--size);
+    text-align: center;
+    width: 100vw;
+    position: absolute;
+    bottom: var(--height);
+}
+@media (max-width: 750px) {
+    .home-1-title {
+        font-size:25px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    
 }
 
 .home-1-overlay {
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
-}
-
-.home-1-moving-text {
-   position: absolute;
-   bottom: var(--height);
-   color: white;
-}
-
-.home-1-tripadvisor {
-    width: var(--width);
-    margin-bottom: 40px;
-}
-
-.home-1-text {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
-    width: 100vw;
-}
-.home-1-tripadvisor-container {
-    width: 100%;
-    display: flex;
-    justify-content:center ;
+    justify-content: flex-end;
 }
 
-.home-2 {
-    padding: 25px;
-}
+
+
 
 .home-2-about {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
+    width: 100%;
 }
 
 .home-2-about-text {
-    width: 100%;
-    padding: 12px;
+    display: flex;
+    align-items: center;
     margin-bottom: 24px;
+    margin-top: 50px;
+    width: 100%;
+    gap: 20vw;
 }
+.home-2-about-text div {
+    max-width: 600px;
+    padding: 40px;
+}
+
+.home-2-about-text img{
+    height: 45vh;
+}
+
+.home-2-about-text-private {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.home-2-about-text-private div{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   flex-wrap: wrap;
+   padding: 40px;
+   width: 550px;
+}
+
+.home-2-about-text-private-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .home-2-about-gallery {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
+}
+
+.home-2-about-location {
+    width: 100vw;
+}
+
+.home-2-about-location-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+}
+
+.home-2-about-location-info img{
+    margin: 40px;
+}
+
+.home-2-alc {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 30vw;
 }
 
 .home-2-about-gallery-images {
@@ -86,10 +131,80 @@
 .home-2-about-gallery-image {
     width: 28vw;
     border-radius: 2px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 3px, rgba(255, 255, 255, 0.24) 0px 1px 2px;
+}
+
+.home-2-about-location-image {
+    border-radius: 2px;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 3px, rgba(255, 255, 255, 0.24) 0px 1px 2px;
+    width: 50vw;
 }
 
 .hr-break {
-    border: 1px solid black;
+    border: 0.5px solid rgba(255, 255, 255, 0.48);
     width: 94vw;
+    margin-top: 60px;
+}
+
+.hr-break-directions {
+    border: 0.5px solid rgba(255, 255, 255, 0.48);
+    width: 30vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.home-1-content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.home-1-content-p {
+    width: 90%;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+.home-1-moving-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.contact-private {
+    display: flex;
+}
+
+.contact-private a {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    gap: 8px;
+}
+
+.home-2-atc {
+    font-size: 20px;
+}
+
+@media (max-width: 920px) {
+    .home-2-about-text img{
+        display: none;
+    }
+}
+@media (max-width: 800px) {
+    .home-2-about-location-info{
+        justify-content: center;
+    }
+    .home-2-alc {
+        align-items: center;
+        text-align: center;
+    }
+}
+@media (max-width: 750px) {
+    .home-1-content-p {
+        font-size: 20px;
+    }
+    
 }

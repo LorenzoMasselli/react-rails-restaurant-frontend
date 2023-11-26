@@ -1,33 +1,34 @@
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDays, faRectangleList, faBook } from '@fortawesome/free-solid-svg-icons'
-import tripAdvisor from './tripadvisor-choice-award.png'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import menu from '../bookings/menu/beach-house-menu.pdf'
 
 // eslint-disable-next-line react/prop-types
-function Navbar({currUser, setCurrUser, isTitleAtTop, isTALogoTop, scroll}) {
+function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
    
-    const overlayFormula = `rgba(0, 0, 0,${(0.9 * scroll) / 750 + 0.05})`
-    // useEffect(() => {
-    //     console.log(scroll)
-    // }, [scroll])
+
     
     return (
-        <nav className='navbar' style={{backgroundColor: overlayFormula}}>
-            <section className='navbar-1'>
-                <div className='tripadvisor'>
-                    <img src={tripAdvisor} alt="Tripadvisor Choice Award 2023" className='tripadvisor-logo' style={{opacity: isTitleAtTop ? "1" : "0.0"}}/>
+        <nav className='navbar' >
+            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "black": "rgba(0, 0, 0, 0)"}}>
+                <div className='navbar-1-left'>
+                    <div className='navbar-1-contacts'>
+                        <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='m'/> (230) 2632599</a>
+                        <a href='https://wa.me/23054886740' target='blank'><FontAwesomeIcon icon={faWhatsapp} style={{color: "#0FBA18",}} size='lg'/> <span> (230) 54886740</span></a>
+                        <p>Mon-Sun 12:00 - 22:00 </p>
+                    </div>
                 </div>
-                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block" : "none"}}>THE BEACH HOUSE</Link>
+                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block" : "none"}}>The Beach House</Link>
                 <div className='navbar-links'>
                     <div>
                         {currUser && currUser.admin ? (
                             <>
                                 <Link to="/react-rails-restaurant-frontend/bookings" className='booking-link'>
-                                    <FontAwesomeIcon icon={faRectangleList} size="2xl"/>
                                     <span className='booking-link-text'>All bookings</span>
                                 </Link>
                             </>
@@ -35,14 +36,12 @@ function Navbar({currUser, setCurrUser, isTitleAtTop, isTALogoTop, scroll}) {
                     </div>
                     <div className='navbar-links-flex'>
                         <a href={menu} target='blank' className='booking-link'>
-                            <FontAwesomeIcon icon={faBook} size="2xl" />
-                            <span className='booking-link-text' >Menu</span>
+                            <span className='menu-link-text' >Menu</span>
                         </a>
                     </div>
                     <div className='navbar-links-flex'>
                         <Link to="/react-rails-restaurant-frontend/new" className='booking-link shake'>
-                            <FontAwesomeIcon icon={faCalendarDays} size="2xl"/>
-                            <span className='booking-link-text' >Book</span>
+                            <button>Book</button>
                         </Link>
                     </div>
                 </div>
