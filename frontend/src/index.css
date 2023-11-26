@@ -73,3 +73,23 @@ button:hover {
     color: black;
   }
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: white;
+    background-color: black;
+  }
+  a:hover {
+    color: white;
+  }
+  button {
+    background-color: #171d8e00;
+    color: white;
+    border: solid 1px white;
+    /* max-width: 140px; */
+    
+  }
+  button:hover {
+    background-color: white;
+    color: black;
+  }
+}
