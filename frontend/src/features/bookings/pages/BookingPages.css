@@ -444,7 +444,14 @@ button:disabled {
 .edit-button {
     background-color: #171C8F;
     color: white;
+    border: solid 1px #ffffff00;
 }
+.edit-button:hover {
+    background-color: #171C8F;
+    color: white;
+    border: solid 1px #ffffff00;
+}
+
 
 .confirm-button {
     background-color: #171C8F;
