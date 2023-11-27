@@ -201,6 +201,9 @@
         align-items: center;
         text-align: center;
     }
+    .home-2-about-location-image {
+        width: 80vw;
+    }
 }
 @media (max-width: 750px) {
     .home-1-content-p {
