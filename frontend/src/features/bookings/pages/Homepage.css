@@ -7,8 +7,8 @@
 }
 
 .home-1 {
-    height: 130vh;
-    background-image: url('./images/seafood.jpg');
+    height: 100vh;
+    background-image: url('./images/homepage.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -27,6 +27,20 @@
     position: absolute;
     bottom: var(--height);
 }
+
+.home-1-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-1-t {
+    font-size: 12rem;
+    position: absolute;
+    top: 11rem;
+}
+
+
 @media (max-width: 750px) {
     .home-1-title {
         font-size:25px;
@@ -37,7 +51,7 @@
 }
 
 .home-1-overlay {
-    height: 130vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -210,4 +224,116 @@
         font-size: 20px;
     }
     
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+
+.home-3 {
+    background-color: #101923;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
+
+.header {
+    margin: 0;
+}
+
+.about-text {
+    width: 40vw;
+    text-align: justify;
+}
+
+.about-image {
+    width: 50vw;
+    background-image: url('./images/food2.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+.home-4 {
+    background-color: #101923;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.events {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
+
+.events-text {
+    width: 40vw;
+    text-align: justify;
+}
+
+.events-image {
+    width: 50vw;
+    background-image: url('./images/event1.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+}
+
+.event-button {
+    margin: 6px 0px;
+    padding: 0.8rem 1.2rem;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+.home-5 {
+    background-color: #101923;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#background-video {
+    height: 100%;
+    /* width: 50vw; */
+    position: absolute;
+    left: 50%; /* % of surrounding element */
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vid-container {
+    width: 50vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.chef {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
+
+.chef-text {
+    width: 40vw;
+    text-align: justify;
 }

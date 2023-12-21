@@ -1,6 +1,6 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 // import PropTypes from 'prop-types';
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, useNavigate} from 'react-router-dom'
 import BookingsList from '../bookings/pages/BookingsList'
 import BookingDetails from '../bookings/pages/BookingDetails'
 import NewBookingForm from '../bookings/forms/NewBookingForm'
@@ -10,6 +10,14 @@ import User from '../admin/user/User'
 
 // eslint-disable-next-line react/prop-types
 function AppRoutes({currUser, setCurrUser, isTitleAtTop, handleTitleAtTopChange, handleScrollPosition, handleHomeTwoAtTopChange}) {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Place your navigation logic here
+        if (currUser && !currUser.admin) {
+          navigate('/react-rails-restaurant-frontend/admin');
+        }
+      }, [currUser, navigate]);
     
     return (
         <Routes>
