@@ -1,28 +1,23 @@
 // API comes from .env.development file 
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import './BookingPages.css'
 import BookingsTable from './BookingsTable'
+import BookingsConfirmed from './BookingsConfirmed'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // eslint-disable-next-line no-unused-vars
-import { faCircle, faChevronDown, faChevronUp, faChevronLeft, faChevronRight, faUserGroup, faMagnifyingGlass, faBookOpen  } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-function filterBookingsByDateSpecified(bookings, activeDate) {
-  return bookings.filter((booking) => booking.date === activeDate);
-}
+
 
 function BookingsList() {
     const [bookings, setBookings] = useState([]);
     const [, setLoading] = useState(true);
     const [, setError] = useState(null)
-    const [activeDate, setActiveDate] = useState(new Date().toISOString().slice(0, 10))
     const [formattedDate, setFormattedDate] = useState('');
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const handleSearchChange = (e) => {
-      setSearchQuery(e.target.value);
-    };
+    const [activeDate, setActiveDate] = useState(new Date().toISOString().slice(0, 10))
+    const [activeSection, setActiveSection] = useState('confirmed'); 
+    
   
 
     //  fetch bookings from API
@@ -92,9 +87,6 @@ function BookingsList() {
     //   }
     // } 
 
-    const bookingsByDateSpecified = filterBookingsByDateSpecified(bookings, activeDate);
-
-    
     const backwardDate = () => {
       const currentDate = new Date(activeDate)
       currentDate.setDate(currentDate.getDate() - 1);
@@ -114,22 +106,8 @@ function BookingsList() {
         year: 'numeric',
       });
       setFormattedDate(formattedDateString);
-  }, [activeDate]);
+    }, [activeDate]);
     
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
-  
-  const filteredBookings = bookingsByDateSpecified.filter((booking) =>
-  booking.confirmed && booking.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const totalConfirmedBookingsQuantity = filteredBookings.reduce((total, booking) => total + booking.quantity, 0);
-  
-
-
-
     return (
       <div className='booking-container'>
           <div className='date-search'>
@@ -141,63 +119,15 @@ function BookingsList() {
           </div>
           <section className='booking-data'>
             <div className='left-sidebar'>
-              <p>Confirmed Bookings</p>
-              <p>Reservation Requests</p>
+            <p onClick={() => setActiveSection('confirmed')} className='hover'>Confirmed Bookings</p>
+            <p onClick={() => setActiveSection('all')} className='hover'>All Bookings</p>
             </div>
-            {filteredBookings.length >= 0 && (
-              <div className='confirmed-bookings'>
-                <div className='search-confirmed-bookings'>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  <input
-                    type='text'
-                    placeholder='Search reservations by name'
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                  />
-                </div>
-                <div className='all-bookings-header'>
-                  <h4>Reservations</h4>
-                  <div className='bookings-table-details'>
-                    <p><FontAwesomeIcon icon={faBookOpen} /> {filteredBookings.length} </p>
-                    <p className='booking-total'><FontAwesomeIcon icon={faUserGroup} />{totalConfirmedBookingsQuantity}</p>
-                  </div>
-                </div>
-                <div className='all-bookings'>
-                  {filteredBookings.map((booking) => (
-                      <div className='all-booking-container' key={booking.id}>
-                        <p className='booking-time'>{booking.time} pm</p>
-                        <div key={booking.id} className='bookings-list'>
-                          <div className="booking-activity">
-                            <Link to={`${booking.id}`}>{capitalizeFirstLetter(booking.name)}</Link>
-                          </div>
-                          <div>
-                            <p className='booking-quantity'>
-                            <FontAwesomeIcon icon={faUserGroup} />
-                              {booking.quantity}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      ))}
-                  </div>
-                  {filteredBookings.length === 0 && (
-                    <div>
-                        <div className='no-bookings'>
-                          {searchQuery !== '' ? (
-                            <h4>No bookings for the name {searchQuery}</h4>
-                          ) : (
-                            <h4>No bookings for {formattedDate}</h4>
-                          )}
-                        </div>
-                    </div>
-                  )}
-              </div>
-            )}
+            {activeSection === 'confirmed' ? (
+          <BookingsConfirmed bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} />
+          ) : (
+            <BookingsTable bookings={bookings} />
+          )}
           </section>
-        <section>
-          <BookingsTable bookings={bookings}/>
-        </section>
-          
       </div>
   )
 }

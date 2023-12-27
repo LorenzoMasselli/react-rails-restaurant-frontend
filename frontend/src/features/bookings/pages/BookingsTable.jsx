@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck,  faXmark } from '@fortawesome/free-solid-svg-icons'
+import './BookingPages.css'
 
 function BookingsTable({ bookings }){
 
@@ -22,55 +23,58 @@ function BookingsTable({ bookings }){
     });
 
     return (
-        <>
+        <section className="table-container">
             <h2>Bookings Table</h2>
-            <div>
-                <label>
-                Filter by Date:
-                <input
-                    type="date"
-                    value={dateFilter}
-                    onChange={(e) => setDateFilter(e.target.value)}
-                />
-                </label>
-                <label>
-                Search by Name:
-                <input
-                    type="text"
-                    value={nameSearch}
-                    onChange={(e) => setNameSearch(e.target.value)}
-                />
-                </label>
+            <div className="table-filters">
+                    <label>
+                        Search by Name:
+                        <input
+                            type="text"
+                            value={nameSearch}
+                            onChange={(e) => setNameSearch(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                    Filter by Date:
+                    <input
+                        type="date"
+                        value={dateFilter}
+                        onChange={(e) => setDateFilter(e.target.value)}
+                    />
+                    </label>
+                    <p>Add +</p>
             </div>
             <table>
                 <thead>
-                <tr>
+                <tr className="table-headers">
+                    <th>Full Name</th>
                     <th>Status</th>
-                    <th>Name</th>
-                    <th>Contact</th>
-                    <th>Guests</th>
                     <th>Date</th>
+                    <th>Guests</th>
                     <th>Time</th>
-                    <th>Action</th>
+                    <th>Contact</th>
+                    <th>Confirm</th>
+                    <th>Delete</th>
                     <th>Notes</th>
                 </tr>
                 </thead>
                 <tbody>
                 {filteredBookings.map((booking) => (
-                    <tr key={booking.id}>
-                    <td>{booking.confirmed ? "Confirmed" : "Unconfirmed"}</td>
+                    <tr key={booking.id} className="table-content">
                     <td>{capitalizeFirstLetter(booking.name)}</td>
-                    <td>{booking.email}</td>
-                    <td>{booking.quantity}</td>
+                    <td>{booking.confirmed ? <p className="table-confirmed">Confirmed</p> : <p className="table-pending">Pending</p>}</td>
                     <td>{booking.date}</td>
+                    <td><p className="al-c">{booking.quantity}</p></td>
                     <td>{booking.time}</td>
-                    <td><FontAwesomeIcon icon={faCheck} style={{color: "23d100"}}/> |  |  | <FontAwesomeIcon icon={faXmark} style={{color: "d10000"}}/></td>
+                    <td>{booking.email}</td>
+                    <td>{booking.confirmed ? "" : <p className="tc-c"><FontAwesomeIcon icon={faCheck} style={{color: "23d100", paddingRight: "1rem"}}/></p> } </td>
+                    <td><p className="tc-c"><FontAwesomeIcon icon={faXmark} style={{color: "d10000", paddingRight: "1rem"}}/></p></td>
                     <td>{booking.note ? booking.note : " "}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-        </>
+        </section>
     )
 }
 

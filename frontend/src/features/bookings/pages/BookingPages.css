@@ -621,3 +621,67 @@ button:disabled {
     display: flex;
     gap: 1rem;
 }
+
+
+
+th {
+    text-align: left;
+    padding: 1.2rem 0rem;
+    padding-right: 1rem;
+    font-size: 1.1rem;
+}
+
+tr {
+    padding-left: 1rem;
+}
+
+.table-content {
+    box-shadow: 0 -1px 0 #64646468 inset;
+    padding: 1rem 0rem;
+}
+.table-content:last-child {
+    box-shadow: none;
+}
+
+
+.table-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.table-container {
+    background-color: white;
+    color: black;
+    padding: 0rem 2rem; 
+    margin-bottom: 4rem; 
+}
+
+
+.table-confirmed {
+    border-radius: 6px;
+    background-color: #EAFCD9;
+    padding: 0.1rem 0.7rem;
+}
+.table-pending {
+    color: rgba(0, 0, 0, 0.635);
+    background-color: #fdfdfd92;
+    padding: 0.1rem 0.7rem;
+}
+
+.al-c {
+   text-align: center;
+   padding-right: 1rem;
+}
+
+.tc-c {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hover {
+    cursor: pointer;
+    white-space: nowrap
+}
