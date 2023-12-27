@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck,  faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faCheck,  faXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import './BookingPages.css'
 
 function BookingsTable({ bookings }){
@@ -26,23 +26,26 @@ function BookingsTable({ bookings }){
         <section className="table-container">
             <h2>Bookings Table</h2>
             <div className="table-filters">
-                    <label>
-                        Search by Name:
-                        <input
-                            type="text"
-                            value={nameSearch}
-                            onChange={(e) => setNameSearch(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                    Filter by Date:
+                <div className="t-se">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
                     <input
-                        type="date"
-                        value={dateFilter}
-                        onChange={(e) => setDateFilter(e.target.value)}
+                        type="text"
+                        value={nameSearch}
+                        onChange={(e) => setNameSearch(e.target.value)}
+                        placeholder="Search by name..."
+                        className="t-ws"
                     />
-                    </label>
-                    <p>Add +</p>
+                </div>
+                    <div className="t-fbd">
+                        <p>Select a Date:</p>
+                        <input
+                            type="date"
+                            value={dateFilter}
+                            onChange={(e) => setDateFilter(e.target.value)}
+                            className="t-fd"
+                        />
+                    </div>
+                    <p className="t-add">Add +</p>
             </div>
             <table>
                 <thead>
@@ -63,14 +66,15 @@ function BookingsTable({ bookings }){
                     <tr key={booking.id} className="table-content">
                     <td>{capitalizeFirstLetter(booking.name)}</td>
                     <td>{booking.confirmed ? <p className="table-confirmed">Confirmed</p> : <p className="table-pending">Pending</p>}</td>
-                    <td>{booking.date}</td>
+                    <td><p className="al-l">{booking.date}</p></td>
                     <td><p className="al-c">{booking.quantity}</p></td>
                     <td>{booking.time}</td>
                     <td>{booking.email}</td>
                     <td>{booking.confirmed ? "" : <p className="tc-c"><FontAwesomeIcon icon={faCheck} style={{color: "23d100", paddingRight: "1rem"}}/></p> } </td>
                     <td><p className="tc-c"><FontAwesomeIcon icon={faXmark} style={{color: "d10000", paddingRight: "1rem"}}/></p></td>
-                    <td>{booking.note ? booking.note : " "}</td>
+                    <td>{booking.note ? <p className="al-n">{booking.note}</p> : <p className="al-i">No instructions</p>}</td>
                     </tr>
+                    
                 ))}
                 </tbody>
             </table>

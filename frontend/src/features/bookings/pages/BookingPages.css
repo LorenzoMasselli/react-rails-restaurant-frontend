@@ -292,10 +292,11 @@ button:disabled {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
     min-height: 80vh;
     margin-top: 10vh;
+
  }
  .bookings-days {
      display: flex;
@@ -598,17 +599,12 @@ button:disabled {
     width: 100%;
 }
 
-.left-sidebar {
+.menu-mini {
     display: flex;
-    flex-direction: column;
-    width: 20vh;
-}
-
-.booking-data {
-    display: flex;
-    padding: 3rem;
+    /* flex-direction: column; */
     gap: 2rem;
 }
+
 
 .all-bookings-header {
     display: flex;
@@ -684,4 +680,84 @@ tr {
 .hover {
     cursor: pointer;
     white-space: nowrap
+}
+
+.al-l {
+    white-space: nowrap
+}
+
+.al-i {
+    color: rgba(0, 0, 0, 0.65);
+    font-style: italic;
+}
+
+.al-n {
+    color: rgba(0, 0, 0, 0.9);
+    font-style: italic;
+}
+
+.t-se {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.299);
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+}
+
+.t-ws {
+    border: 1px solid rgba(255, 255, 0, 0);
+}
+
+.t-ws:focus {
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+.t-fd {
+    border: 1px solid rgba(255, 255, 0, 0);
+    cursor: text;
+}
+
+.t-fd::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+.t-fd::-webkit-datetime-edit-text {
+    cursor: text;
+    /* ::-webkit-datetime-edit
+::-webkit-datetime-edit-fields-wrapper
+::-webkit-datetime-edit-text
+::-webkit-datetime-edit-month-field
+::-webkit-datetime-edit-day-field
+::-webkit-datetime-edit-year-field
+::-webkit-inner-spin-button
+::-webkit-calendar-picker-indicator */
+}
+
+.t-fd:focus {
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0);
+    outline: none;
+}
+.t-fbd {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.299);
+    border-radius: 12px;
+    padding: 0.2rem 0.7rem;
+    gap: 0.3rem;
+}
+
+.t-fbd p {
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.t-add {
+    color: #171C8F;
+    padding: 0.2rem 0.7rem;
+    margin: 0;
+    font-weight: 700;
 }

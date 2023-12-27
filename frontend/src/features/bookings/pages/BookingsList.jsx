@@ -110,6 +110,11 @@ function BookingsList() {
     
     return (
       <div className='booking-container'>
+        <div className='menu-mini'>
+          <p onClick={() => setActiveSection('confirmed')} className='hover'>Confirmed Bookings</p>
+          <p onClick={() => setActiveSection('all')} className='hover'>All Bookings</p>
+        </div>
+        {activeSection === 'confirmed' ? ( 
           <div className='date-search'>
             <div className='Date-clicker'>
               <FontAwesomeIcon icon={faChevronLeft} onClick={backwardDate} className='clickable'/>
@@ -117,17 +122,13 @@ function BookingsList() {
               <FontAwesomeIcon icon={faChevronRight} onClick={forwardDate} className='clickable'/>
             </div>
           </div>
-          <section className='booking-data'>
-            <div className='left-sidebar'>
-            <p onClick={() => setActiveSection('confirmed')} className='hover'>Confirmed Bookings</p>
-            <p onClick={() => setActiveSection('all')} className='hover'>All Bookings</p>
-            </div>
-            {activeSection === 'confirmed' ? (
+          ) : ( <></>
+        )}
+        {activeSection === 'confirmed' ? (
           <BookingsConfirmed bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} />
           ) : (
             <BookingsTable bookings={bookings} />
           )}
-          </section>
       </div>
   )
 }
@@ -136,17 +137,3 @@ export default BookingsList
 
 
 
-
-
-
-
-
-
-
- {/* <div className='edit-delete'> */}
-  {/* <Link to={`/react-rails-restaurant-frontend/bookings/${booking.id}/edit`}><button className='edit-button'>Edit</button></Link>
-  {!booking.confirmed && (
-    <button className='confirm-button ' onClick={() => confirmBooking(booking)}>Confirm</button>
-  )}
-  <button className="delete-button" onClick={() => deleteBooking(booking.id)}>Delete</button> */}
-{/* </div> */}
