@@ -651,6 +651,7 @@ tr {
     color: black;
     padding: 0rem 2rem; 
     margin-bottom: 4rem; 
+    position: relative;
 }
 
 
@@ -675,6 +676,7 @@ tr {
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .hover {
@@ -760,4 +762,21 @@ tr {
     padding: 0.2rem 0.7rem;
     margin: 0;
     font-weight: 700;
+    cursor: pointer;
+}
+
+.table-new-booking-form {
+    background-color: #101923;
+    position: absolute;
+    padding: 1rem;
+    right: 1rem;
+    top: 1rem;
+
+}
+
+.table-new-booking-form-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
 }

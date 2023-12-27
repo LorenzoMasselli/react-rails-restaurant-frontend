@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck,  faXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faCheck,  faXmark, faMagnifyingGlass, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import './BookingPages.css'
+import NewBookingForm from '../forms/NewBookingForm'
 
-function BookingsTable({ bookings }){
+function BookingsTable({ bookings, confirmBooking, deleteBooking }){
 
     const [dateFilter, setDateFilter] = useState("");
     const [nameSearch, setNameSearch] = useState("");
+    const [activeForm, setActiveForm] = useState(false);
 
 
     function capitalizeFirstLetter(string) {
@@ -24,6 +26,8 @@ function BookingsTable({ bookings }){
 
     return (
         <section className="table-container">
+            {activeForm ? <div className="table-new-booking-form"><NewBookingForm /><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="table-new-booking-form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
+            
             <h2>Bookings Table</h2>
             <div className="table-filters">
                 <div className="t-se">
@@ -45,7 +49,7 @@ function BookingsTable({ bookings }){
                             className="t-fd"
                         />
                     </div>
-                    <p className="t-add">Add +</p>
+                    <p className="t-add" onClick={() => setActiveForm(true)}>Add +</p>
             </div>
             <table>
                 <thead>
@@ -70,8 +74,8 @@ function BookingsTable({ bookings }){
                     <td><p className="al-c">{booking.quantity}</p></td>
                     <td>{booking.time}</td>
                     <td>{booking.email}</td>
-                    <td>{booking.confirmed ? "" : <p className="tc-c"><FontAwesomeIcon icon={faCheck} style={{color: "23d100", paddingRight: "1rem"}}/></p> } </td>
-                    <td><p className="tc-c"><FontAwesomeIcon icon={faXmark} style={{color: "d10000", paddingRight: "1rem"}}/></p></td>
+                    <td>{booking.confirmed ? "" : <p className="tc-c"><FontAwesomeIcon onClick={() => confirmBooking(booking)} icon={faCheck} style={{color: "23d100", paddingRight: "1rem"}}/></p> } </td>
+                    <td><p className="tc-c"><FontAwesomeIcon onClick={() => deleteBooking(booking.id)} icon={faXmark} style={{color: "d10000", paddingRight: "1rem"}}/></p></td>
                     <td>{booking.note ? <p className="al-n">{booking.note}</p> : <p className="al-i">No instructions</p>}</td>
                     </tr>
                     

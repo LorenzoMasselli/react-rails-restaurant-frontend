@@ -48,44 +48,45 @@ function BookingsList() {
         }
         loadBookings();
       }, []);
-    //   const confirmBooking = async (booking) => {
-    //     try {
-    //       const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${booking.id}`, {
-    //         method: "PUT",
-    //             headers: {
-    //                 "Content-type": "application/json",
-    //             },
-    //             body: JSON.stringify({
-    //               confirmed: true,
-    //             })
-    //       });
-    //       if (response.ok) {
-    //         setBookings((prevBookings) =>
-    //         prevBookings.map((prevBooking) =>
-    //           prevBooking.id === booking.id ? { ...prevBooking, confirmed: true } : prevBooking
-    //         ))
-    //       } else {
-    //         throw response
-    //       }
-    //     } catch(e) {
-    //       console.log(e)
-    //     }
-    //   } 
+    
+    const confirmBooking = async (booking) => {
+        try {
+          const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${booking.id}`, {
+            method: "PUT",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                  confirmed: true,
+                })
+          });
+          if (response.ok) {
+            setBookings((prevBookings) =>
+            prevBookings.map((prevBooking) =>
+              prevBooking.id === booking.id ? { ...prevBooking, confirmed: true } : prevBooking
+            ))
+          } else {
+            throw response
+          }
+        } catch(e) {
+          console.log(e)
+        }
+      } 
 
-    // const deleteBooking = async (id) => {
-    //   try {
-    //     const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`, {
-    //       method: "DELETE"
-    //     });
-    //     if (response.ok) {
-    //       setBookings(bookings.filter((booking) => booking.id !== id))
-    //     } else {
-    //       throw response
-    //     }
-    //   } catch(e) {
-    //     console.log(e)
-    //   }
-    // } 
+    const deleteBooking = async (id) => {
+      try {
+        const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`, {
+          method: "DELETE"
+        });
+        if (response.ok) {
+          setBookings(bookings.filter((booking) => booking.id !== id))
+        } else {
+          throw response
+        }
+      } catch(e) {
+        console.log(e)
+      }
+    } 
 
     const backwardDate = () => {
       const currentDate = new Date(activeDate)
@@ -127,7 +128,7 @@ function BookingsList() {
         {activeSection === 'confirmed' ? (
           <BookingsConfirmed bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} />
           ) : (
-            <BookingsTable bookings={bookings} />
+            <BookingsTable bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking}/>
           )}
       </div>
   )
