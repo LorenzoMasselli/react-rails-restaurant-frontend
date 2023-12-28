@@ -19,7 +19,6 @@ function BookingsList() {
     const [activeSection, setActiveSection] = useState('confirmed'); 
     
   
-
     //  fetch bookings from API
     useEffect(() => {
         async function loadBookings() {
@@ -48,6 +47,27 @@ function BookingsList() {
         }
         loadBookings();
       }, []);
+
+        // store emails list and repeat customers 
+         // Create a map to store the count of each email
+        //  const emailCountMap = {};
+   
+        //  // Iterate through filteredBookings to populate the emailCountMap
+        //  bookings.forEach((booking) => {
+        //    const email = booking.email;
+   
+        //    // If the email is not in the map, initialize its count to 1
+        //    if (!emailCountMap[email]) {
+        //      emailCountMap[email] = 1;
+        //    } else {
+        //      // If the email is already in the map, increment its count
+        //      emailCountMap[email]++;
+        //    }
+        //  });
+        //  console.log(emailCountMap)
+   
+
+
     
     const confirmBooking = async (booking) => {
         try {
@@ -111,13 +131,13 @@ function BookingsList() {
     
     return (
       <div className='booking-container'>
-        <div className='menu-mini'>
-          <p onClick={() => setActiveSection('confirmed')} className='hover'>Confirmed Bookings</p>
-          <p onClick={() => setActiveSection('all')} className='hover'>All Bookings</p>
+        <div className='menu-options'>
+          <p onClick={() => setActiveSection('confirmed')} className='menu-option'>Reservations</p>
+          <p onClick={() => setActiveSection('all')} className='menu-option'>Dashboard</p>
         </div>
         {activeSection === 'confirmed' ? ( 
           <div className='date-search'>
-            <div className='Date-clicker'>
+            <div className='date-clicker'>
               <FontAwesomeIcon icon={faChevronLeft} onClick={backwardDate} className='clickable'/>
               <p>{formattedDate}</p>
               <FontAwesomeIcon icon={faChevronRight} onClick={forwardDate} className='clickable'/>

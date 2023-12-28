@@ -42,7 +42,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #101923;
+  background-color: #10192300;
   color: white;
   border: solid 1px white;
   cursor: pointer;
@@ -83,7 +83,7 @@ button:hover {
     color: white;
   }
   button {
-    background-color: #101923;
+    background-color: #10192300;
     color: white;
     border: solid 1px white;
     /* max-width: 140px; */

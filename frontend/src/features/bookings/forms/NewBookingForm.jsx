@@ -39,9 +39,9 @@ function NewBookingForm({currUser, setCurrUser}) {
         if (response.ok) {
             const { id} = await response.json()
             if (currUser && currUser.admin) {
-                navigate(`/bookings/${id}`)
+                // navigate(`/react-rails-restaurant-frontend/bookings/`)
             } else {
-                navigate(`/`)
+                navigate(`/react-rails-restaurant-frontend`)
             }
         } else {
             console.log("An error occured")

@@ -30,51 +30,53 @@ function BookingsConfirmed({ bookings, activeDate, formattedDate }){
         <> 
             {filteredBookings.length >= 0 && (
                 <div className='confirmed-bookings'>
-                <div className='search-confirmed-bookings'>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    <input
-                    type='text'
-                    placeholder='Search reservations by name'
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                    />
-                </div>
-                <div className='all-bookings-header'>
-                    <h4>Reservations</h4>
-                    <div className='bookings-table-details'>
-                    <p><FontAwesomeIcon icon={faBookOpen} /> {filteredBookings.length} </p>
-                    <p className='booking-total'><FontAwesomeIcon icon={faUserGroup} />{totalConfirmedBookingsQuantity}</p>
+                    <div className='search-confirmed-bookings'>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        <input
+                        type='text'
+                        placeholder='Search reservations by name'
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        />
                     </div>
-                </div>
-                <div className='all-bookings'>
-                    {filteredBookings.map((booking) => (
-                        <div className='all-booking-container' key={booking.id}>
-                        <p className='booking-time'>{booking.time} pm</p>
-                        <div key={booking.id} className='bookings-list'>
-                            <div className="booking-activity">
-                            <Link to={`${booking.id}`}>{capitalizeFirstLetter(booking.name)}</Link>
+                    <div className='bookings-header'>
+                        <h4>Reservations</h4>
+                        <div className='bookings-table-details'>
+                        <p><FontAwesomeIcon icon={faBookOpen} /> {filteredBookings.length} </p>
+                        <p className='booking-total'><FontAwesomeIcon icon={faUserGroup} />  {totalConfirmedBookingsQuantity}</p>
+                        </div>
+                    </div>
+                    <div className="bookings-list">
+                        <div className='bookings-list-container'>
+                            {filteredBookings.map((booking) => (
+                                <div className='booking-item' key={booking.id}>
+                                <p className='booking-time'>{booking.time} pm</p>
+                                <div key={booking.id} className='booking-det'>
+                                    <div className="booking-activity">
+                                    <Link to={`${booking.id}`}>{capitalizeFirstLetter(booking.name)}</Link>
+                                    </div>
+                                    <div>
+                                    <p className='booking-quantity'>
+                                    <FontAwesomeIcon icon={faUserGroup} />
+                                        {booking.quantity}
+                                    </p>
+                                    </div>
+                                </div>
+                                </div>
+                                ))}
                             </div>
+                            {filteredBookings.length === 0 && (
                             <div>
-                            <p className='booking-quantity'>
-                            <FontAwesomeIcon icon={faUserGroup} />
-                                {booking.quantity}
-                            </p>
+                                <div className='no-bookings'>
+                                    {searchQuery !== '' ? (
+                                    <h4>No bookings for the name {searchQuery}</h4>
+                                    ) : (
+                                    <h4>No bookings for {formattedDate}</h4>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        </div>
-                        ))}
-                    </div>
-                    {filteredBookings.length === 0 && (
-                    <div>
-                        <div className='no-bookings'>
-                            {searchQuery !== '' ? (
-                            <h4>No bookings for the name {searchQuery}</h4>
-                            ) : (
-                            <h4>No bookings for {formattedDate}</h4>
                             )}
-                        </div>
                     </div>
-                    )}
                 </div>
             )}
         </>

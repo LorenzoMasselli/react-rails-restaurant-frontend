@@ -296,7 +296,7 @@ button:disabled {
     position: relative;
     min-height: 80vh;
     margin-top: 10vh;
-
+    gap: 1rem;
  }
  .bookings-days {
      display: flex;
@@ -309,7 +309,7 @@ button:disabled {
      display: flex;
      flex-direction: column;
      justify-content: center;
-     align-items: flex-start;
+     align-items: center;
  }
  
  .date-search {
@@ -341,16 +341,17 @@ button:disabled {
      cursor: pointer;
  }
  
- .all-bookings {
+ .bookings-list-container {
      display: flex;
      flex-direction: column;
      align-items: center;
      flex-wrap: wrap;
      justify-content: flex-start;
      color: black;
+     margin: 0;
  }
  
- .bookings-list {
+ .booking-det {
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -539,7 +540,7 @@ button:disabled {
 }
 
 
-.Date-clicker {
+.date-clicker {
     display: flex;
     gap: 3rem;
     align-items: center;
@@ -549,11 +550,11 @@ button:disabled {
     cursor: pointer;
 }
 
-.all-booking-container {
+.booking-item {
     display: flex;
     background-color: #D9D9D9;
     border-bottom: 1px solid white;
-    width: 20rem;
+    width: 21rem;
 }
 
 .booking-time {
@@ -562,11 +563,9 @@ button:disabled {
     margin: 0;
     display: flex;
     align-items: center;
+    text-align: justify;
 }
 
-.all-bookings p {
-    margin: 0;
-}
 
 .booking-quantity {
     font-size: 0.8rem;
@@ -584,7 +583,7 @@ button:disabled {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    width: 80%;
+    width: 215px;
     background-color: #2E2E30;
     border-radius: 24px;
     margin-bottom: 1rem;
@@ -599,14 +598,14 @@ button:disabled {
     width: 100%;
 }
 
-.menu-mini {
+.menu-options {
     display: flex;
     /* flex-direction: column; */
     gap: 2rem;
 }
 
 
-.all-bookings-header {
+.bookings-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -622,28 +621,24 @@ button:disabled {
 
 th {
     text-align: left;
-    padding: 1.2rem 0rem;
+    padding: 0.4rem 0rem;
     padding-right: 1rem;
     font-size: 1.1rem;
 }
 
-tr {
-    padding-left: 1rem;
-}
 
-.table-content {
+.table-row {
     box-shadow: 0 -1px 0 #64646468 inset;
     padding: 1rem 0rem;
 }
-.table-content:last-child {
-    box-shadow: none;
-}
 
 
-.table-filters {
+
+.dashboard-filters {
     display: flex;
     justify-content: space-between;
     align-items: center;  
+    padding-bottom: 0.8rem;
 }
 
 .table-container {
@@ -652,26 +647,27 @@ tr {
     padding: 0rem 2rem; 
     margin-bottom: 4rem; 
     position: relative;
+    width: 1280px;
 }
 
 
-.table-confirmed {
+.status-confirmed {
     border-radius: 6px;
     background-color: #EAFCD9;
     padding: 0.1rem 0.7rem;
 }
-.table-pending {
+.status-pending {
     color: rgba(0, 0, 0, 0.635);
     background-color: #fdfdfd92;
     padding: 0.1rem 0.7rem;
 }
 
-.al-c {
+.guests-count {
    text-align: center;
    padding-right: 1rem;
 }
 
-.tc-c {
+.confirm-icon {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -679,26 +675,26 @@ tr {
     cursor: pointer;
 }
 
-.hover {
+.menu-option {
     cursor: pointer;
     white-space: nowrap
 }
 
-.al-l {
+.date-label {
     white-space: nowrap
 }
 
-.al-i {
+.no-instructions {
     color: rgba(0, 0, 0, 0.65);
     font-style: italic;
 }
 
-.al-n {
+.note-label {
     color: rgba(0, 0, 0, 0.9);
     font-style: italic;
 }
 
-.t-se {
+.name-search {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -707,43 +703,49 @@ tr {
     border-radius: 12px;
 }
 
-.t-ws {
+.name-input {
     border: 1px solid rgba(255, 255, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
 }
 
-.t-ws:focus {
+.name-input:focus {
     border-color: rgba(0,0,0,0);
     background-color: rgba(0,0,0,0);
     outline: none;
 }
 
-.t-fd {
+.date-input {
     border: 1px solid rgba(255, 255, 0, 0);
     cursor: text;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
 }
 
-.t-fd::-webkit-calendar-picker-indicator {
+.date-input::-webkit-calendar-picker-indicator {
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    color-scheme: light;
 }
 
-.t-fd::-webkit-datetime-edit-text {
+.date-input::-webkit-datetime-edit-fields-wrapper {
     cursor: text;
     /* ::-webkit-datetime-edit
-::-webkit-datetime-edit-fields-wrapper
-::-webkit-datetime-edit-text
-::-webkit-datetime-edit-month-field
-::-webkit-datetime-edit-day-field
-::-webkit-datetime-edit-year-field
-::-webkit-inner-spin-button
-::-webkit-calendar-picker-indicator */
+        ::-webkit-datetime-edit-fields-wrapper
+        ::-webkit-datetime-edit-text
+        ::-webkit-datetime-edit-month-field
+        ::-webkit-datetime-edit-day-field
+        ::-webkit-datetime-edit-year-field
+        ::-webkit-inner-spin-button
+        ::-webkit-calendar-picker-indicator */
 }
 
-.t-fd:focus {
+.date-input:focus {
     border-color: rgba(0,0,0,0);
     background-color: rgba(0,0,0,0);
     outline: none;
 }
-.t-fbd {
+.date-filter {
     display: flex;
     border: 1px solid rgba(0, 0, 0, 0.299);
     border-radius: 12px;
@@ -751,14 +753,13 @@ tr {
     gap: 0.3rem;
 }
 
-.t-fbd p {
+.date-filter p {
     margin: 0;
     font-size: 0.8rem;
     text-align: center;
 }
 
-.t-add {
-    color: #171C8F;
+.add-button {
     padding: 0.2rem 0.7rem;
     margin: 0;
     font-weight: 700;
@@ -774,9 +775,43 @@ tr {
 
 }
 
-.table-new-booking-form-close {
+.form-close {
     position: absolute;
     top: 1rem;
     right: 1rem;
     cursor: pointer;
+}
+
+.table-header {
+   background-color: #F9F9F9;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    width: 100%;
+  }
+
+.filter-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.dashboard-heading {
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bookings-list {
+    width: 80vw;
+    display: flex;
 }
