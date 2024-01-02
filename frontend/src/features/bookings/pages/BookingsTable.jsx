@@ -62,7 +62,7 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking }){
                 </div>
                     <p className="add-button" onClick={() => setActiveForm(true)}>Add +</p>
             </div>
-            <table>
+            <table className="table-bookings-table">
                 <thead className="table-header">
                 <tr >
                     <th>Full Name</th>
