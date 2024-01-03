@@ -8,34 +8,10 @@ function filterBookingsByDateSpecified(bookings, activeDate) {
     return bookings.filter((booking) => booking.date === activeDate);
   }
 
-  function updateBookingDetails(timeBlocks, filteredBookings) {
-    timeBlocks.forEach((time) => {
-      const td = document.querySelector(`.c[data-time="${time}"]`);
-      if (td) {
-        const booking = filteredBookings.find((booking) => booking.time === time);
-        if (booking) {
-          td.innerHTML = `<div class="abc">${booking.name}${booking.date}</div>`;
-        } else {
-            td.innerHTML = ""
-        }
-      }
-    });
-  }
-
-//   function hasOverlap(existingBooking, newBooking) {
-//     const consistentDate = '2000-01-01'; 
-//     const existingTime = new Date(`${consistentDate}T${existingBooking.time}`);
-//     const newTime = new Date(`${consistentDate}T${newBooking.time}`);
-//     const diffInMinutes = Math.abs(existingTime - newTime) / (1000 * 60);
-  
-//     return diffInMinutes < 120; // Adjust the threshold as needed (2 hours in this example)
-//   }
-
 
 // eslint-disable-next-line react/prop-types
 function BookingsConfirmed({ bookings, activeDate, formattedDate }){
     const [searchQuery, setSearchQuery] = useState('');
-    // const [activeDate, setActiveDate] = useState(new Date().toISOString().slice(0, 10))
 
     const bookingsByDateSpecified = filterBookingsByDateSpecified(bookings, activeDate);
     const filteredBookings = bookingsByDateSpecified.filter((booking) =>
@@ -63,10 +39,63 @@ function BookingsConfirmed({ bookings, activeDate, formattedDate }){
       }, []);
 
 
+    function getAdjacentTimes(time) {
+        const adjacentTimes = [];
+        const [hour, minute] = time.split(':').map(Number);
+    
+        for (let i = -4; i <= 4; i++) {
+            const adjacentHour = hour + Math.floor((minute + i * 30) / 60);
+            const adjacentMinute = (minute + i * 30 + 60) % 60;
+            adjacentTimes.push(`${adjacentHour.toString().padStart(2, '0')}:${adjacentMinute.toString().padStart(2, '0')}`);
+        }
+    
+        return adjacentTimes;
+    }
 
-    useEffect(() => {
-        updateBookingDetails(timeBlocks, filteredBookings);
-      }, [activeDate, filteredBookings, timeBlocks]);
+      useEffect(() => {
+        const rows = [[], [], [], [], []];
+
+          filteredBookings.forEach((booking, index) => {
+            const bookingDiv = document.createElement('div');
+            bookingDiv.className = 'abc';
+            bookingDiv.textContent = `${booking.name}${booking.time}`;
+
+            let dataRow = 1
+
+            if (index === 0) {
+                bookingDiv.setAttribute('data-row', '1');
+                rows[0].push(booking.time);
+            } else {
+                for (let i = 2; i < 6; i++) {
+                    const currentRow = rows[i];
+                    if (i === 5) { 
+                        bookingDiv.setAttribute('data-row', '5');
+                        rows[4].push(booking.time);
+                        dataRow = 5;
+                        break;
+                    }
+                    if (currentRow.some((b) => b === booking.time)) {
+                        continue;
+                    }
+
+                    const adjacentTimes = getAdjacentTimes(booking.time);
+                    if (!currentRow.some((b) => adjacentTimes.includes(b))) {
+                        bookingDiv.setAttribute('data-row', `${currentRow}`);
+                        currentRow.push(booking);
+                        dataRow = currentRow
+                        break; 
+                    }
+                  }
+            }
+
+            const td = document.querySelector(`.row-${dataRow}`);
+            console.log(td)
+            const specificTd = td.querySelector(`td.c[data-time="${booking.time}"]`);
+            console.log(specificTd)
+            specificTd.innerHTML = `<div class="abc" data-row="${dataRow}">${booking.name}${booking.time}</div>`
+          });
+
+      }, [filteredBookings]);      
 
     return (
         <> 
@@ -109,15 +138,15 @@ function BookingsConfirmed({ bookings, activeDate, formattedDate }){
                                 <tr>
                                     <td className="e">
                                         <table className="table-grid row-1" >
-                                            <tbody>
-                                                <tr>
-                                                {timeBlocks.map((time, index) => (
-                                                    <React.Fragment key={index}>
-                                                        <td className="c" data-time={time} ></td>
-                                                    </React.Fragment>
-                                                ))}
-                                                </tr>
-                                            </tbody>
+                                        <tbody>
+                                            <tr>
+                                            {timeBlocks.map((time, index) => (
+                                                <React.Fragment key={index}>
+                                                    <td className="c" data-time={time} ></td>
+                                                </React.Fragment>
+                                            ))}
+                                            </tr>
+                                        </tbody>
                                         </table>
                                     </td>
                                 </tr>
@@ -145,7 +174,6 @@ function BookingsConfirmed({ bookings, activeDate, formattedDate }){
                                                 {timeBlocks.map((time, index) => (
                                                     <React.Fragment key={index}>
                                                         <td className="c" data-time={time} ></td>
-
                                                     </React.Fragment>
                                                 ))}
                                                 </tr>
@@ -193,3 +221,5 @@ function BookingsConfirmed({ bookings, activeDate, formattedDate }){
 }
 
 export default BookingsConfirmed
+
+
