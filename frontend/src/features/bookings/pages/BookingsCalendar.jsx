@@ -53,13 +53,13 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
     }
 
       useEffect(() => {
+          
+          document.querySelectorAll('.abc').forEach((div) => {
+              div.remove();
+            });
+            
         const rows = [[], [], [], [], [], [], [], []];
-
-        document.querySelectorAll('.abc').forEach((div) => {
-            div.remove();
-        });
-
-        console.log(filteredBookings)
+        // console.log(filteredBookings)
 
           filteredBookings.forEach((booking, index) => {
             const bookingDiv = document.createElement('div');
@@ -85,7 +85,7 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
                     }
 
                     const adjacentTimes = getAdjacentTimes(booking.time);
-                    console.log(adjacentTimes)
+                    // console.log(adjacentTimes)
                     if (!currentRow.some((b) => adjacentTimes.includes(b))) {
                         bookingDiv.setAttribute('data-row', `${currentRow}`);
                         currentRow.push(booking.time);
