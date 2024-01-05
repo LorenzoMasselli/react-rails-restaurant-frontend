@@ -228,36 +228,6 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
                                 </tr>
                                 <tr>
                                     <td className="e">
-                                        <table className="table-grid row-4">
-                                            <tbody>
-                                                <tr className="table-grid-row">
-                                                {timeBlocks.map((time, index) => (
-                                                    <React.Fragment key={index}>
-                                                        <td className="c" data-time={time} ></td>
-                                                    </React.Fragment>
-                                                ))}
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="e">
-                                        <table className="table-grid row-5">
-                                            <tbody>
-                                                <tr className="table-grid-row">
-                                                {timeBlocks.map((time, index) => (
-                                                    <React.Fragment key={index}>
-                                                        <td className="c" data-time={time} ></td>
-                                                    </React.Fragment>
-                                                ))}
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="e">
                                         <table className="table-grid row-6">
                                             <tbody>
                                                 <tr className="table-grid-row">
@@ -289,6 +259,36 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
                                 <tr>
                                     <td className="e">
                                         <table className="table-grid row-8">
+                                            <tbody>
+                                                <tr className="table-grid-row">
+                                                {timeBlocks.map((time, index) => (
+                                                    <React.Fragment key={index}>
+                                                        <td className="c" data-time={time} ></td>
+                                                    </React.Fragment>
+                                                ))}
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="e">
+                                        <table className="table-grid row-9">
+                                            <tbody>
+                                                <tr className="table-grid-row">
+                                                {timeBlocks.map((time, index) => (
+                                                    <React.Fragment key={index}>
+                                                        <td className="c" data-time={time} ></td>
+                                                    </React.Fragment>
+                                                ))}
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="e">
+                                        <table className="table-grid row-10">
                                             <tbody>
                                                 <tr className="table-grid-row">
                                                 {timeBlocks.map((time, index) => (
