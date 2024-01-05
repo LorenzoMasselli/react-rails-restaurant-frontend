@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck,  faXmark, faMagnifyingGlass, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import './BookingPages.css'
@@ -24,8 +24,11 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking, currUser, setC
     return isDateMatch && isNameMatch;
     });
 
-    // New code for pagination
-    const itemsPerPage = 10; // You can adjust this value based on your preferences
+    useEffect(() => {
+        setCurrentPage(1);
+      }, [dateFilter, nameSearch]);
+
+    const itemsPerPage = 10; 
 
     const totalPages = Math.ceil(filteredBookings.length / itemsPerPage);
 
