@@ -22,7 +22,7 @@
 
 #nameInput, #phoneInput, #emailInput, #noteInput {
     margin-right: 8px;
-    width: 100%;
+    width: 434px;
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
     appearance: none;
@@ -42,7 +42,7 @@
 
 #name-input, #phone-input, #email-input, #date-input, #quantity-input, #time-input, #note-input, #confirmed-input {
     margin-right: 8px;
-    width: 100%;
+        width: 434px;
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
     appearance: none;
@@ -121,6 +121,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 440px;
 }
 
 

@@ -3,20 +3,20 @@
 import React, { useState, useEffect } from 'react'
 import './BookingPages.css'
 import BookingsTable from './BookingsTable'
-import BookingsConfirmed from './BookingsConfirmed'
+import BookingsCalendar from './BookingsCalendar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // eslint-disable-next-line no-unused-vars
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 
-function BookingsList() {
+function BookingsList({currUser, setCurrUser}) {
     const [bookings, setBookings] = useState([]);
     const [, setLoading] = useState(true);
     const [, setError] = useState(null)
     const [formattedDate, setFormattedDate] = useState('');
     const [activeDate, setActiveDate] = useState(new Date().toISOString().slice(0, 10))
-    const [activeSection, setActiveSection] = useState('confirmed'); 
+    const [activeSection, setActiveSection] = useState('all'); 
     
   
     //  fetch bookings from API
@@ -132,8 +132,8 @@ function BookingsList() {
     return (
       <div className='booking-container'>
         <div className='menu-options'>
-          <p onClick={() => setActiveSection('confirmed')} className='menu-option'>Reservations</p>
-          <p onClick={() => setActiveSection('all')} className='menu-option'>Dashboard</p>
+          <p onClick={() => setActiveSection('confirmed')} className={`menu-option ${activeSection === 'confirmed' ? 'active-menu' : ''}`}>Reservations</p>
+          <p onClick={() => setActiveSection('all')} className={`menu-option ${activeSection === 'all' ? 'active-menu' : ''}`}>Dashboard</p>
         </div>
         {activeSection === 'confirmed' ? ( 
           <div className='date-search'>
@@ -146,9 +146,9 @@ function BookingsList() {
           ) : ( <></>
         )}
         {activeSection === 'confirmed' ? (
-          <BookingsConfirmed bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} />
+          <BookingsCalendar bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} />
           ) : (
-            <BookingsTable bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking}/>
+            <BookingsTable bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} currUser={currUser} setCurrUser={setCurrUser}/>
           )}
       </div>
   )

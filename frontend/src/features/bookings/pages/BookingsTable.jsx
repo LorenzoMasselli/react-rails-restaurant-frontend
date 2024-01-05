@@ -4,7 +4,7 @@ import { faCheck,  faXmark, faMagnifyingGlass, faCircleXmark } from '@fortawesom
 import './BookingPages.css'
 import NewBookingForm from '../forms/NewBookingForm'
 
-function BookingsTable({ bookings, confirmBooking, deleteBooking }){
+function BookingsTable({ bookings, confirmBooking, deleteBooking, currUser, setCurrUser }){
     const [currentPage, setCurrentPage] = useState(1);
     const [dateFilter, setDateFilter] = useState("");
     const [nameSearch, setNameSearch] = useState("");
@@ -35,7 +35,7 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking }){
 
     return (
         <section className="table-container">
-            {activeForm ? <div className="table-new-booking-form"><NewBookingForm /><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
+            {activeForm ? <div className="table-new-booking-form"><NewBookingForm currUser={currUser} setCurrUser={setCurrUser} /><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
             
             <h2 className="dashboard-heading">Dashboard</h2>
             <div className="dashboard-filters">
@@ -93,21 +93,21 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking }){
                 ))}
                 </tbody>
             </table>
-            {totalPages > 1 && (
-                <div className="pagination">
-                {currentPage > 1 && (
-                  <p onClick={() => setCurrentPage(currentPage - 1)} className="pointer">
-                    &lt; Prev
-                  </p>
+            <div className="pagination">
+                {currentPage > 1 ? (
+                    <p onClick={() => setCurrentPage(currentPage - 1)} className="pointer">{'< Prev'}</p>
+                ) : (
+                    <p className="disabled">{'< Prev'}</p>
                 )}
+                
                 <p>{`${currentPage} of ${totalPages}`}</p>
-                {currentPage < totalPages && (
-                  <p onClick={() => setCurrentPage(currentPage + 1)} className="pointer">
-                    Next &gt;
-                  </p>
+                
+                {currentPage < totalPages ? (
+                    <p onClick={() => setCurrentPage(currentPage + 1)} className="pointer">{'Next >'}</p>
+                ) : (
+                    <p className="disabled">{'Next >'}</p>
                 )}
-              </div>
-            )}
+            </div>
         </section>
     )
 }
