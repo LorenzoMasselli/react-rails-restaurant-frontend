@@ -56,13 +56,13 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
         // handleScrollPosition(scrollPosition)
     }, [scrollPosition])
     
-    const overlayFormula = `rgba(0, 0, 0,${(0.7 * scrollPosition) / 700 + 0.05})`
+    // const overlayFormula = `rgba(0, 0, 0,${(0.7 * scrollPosition) / 700 + 0.05})`
 
-    const rootStyle = {
-        '--height': `${0.1 * scrollPosition}px`,
-        '--size': `${105-(scrollPosition/8.8)}px`,
+    // const rootStyle = {
+    //     '--height': `${0.1 * scrollPosition}px`,
+    //     '--size': `${105-(scrollPosition/8.8)}px`,
 
-      };
+    //   };
 
    
     return (
@@ -70,15 +70,10 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
             <section className='home-1'>
                 {/* <div className="home-1-overlay" style={{backgroundColor: overlayFormula}}> */}
                 <div className="home-1-overlay" style={{backgroundColor: 'rgba(0, 0, 0, 0.3)'}}>
-                    {/* <div className="home-1-moving-text">
-                        <h1 className='home-1-title' style={{...rootStyle, opacity: isTitleAtTop ? "0.0" : "1"}}>Savoré </h1>
-                    </div> */}
                     <div className="home-1-text">
                         <h1 className='home-1-t'>Savoré</h1>
                     </div>
-                    {/* <div className='home-1-content'>
-                        <p className='home-1-content-p'><span style={{fontWeight: "900"}}>Savoré</span>, located in the heart of Grand Baie, is a fresh take on Mediterranean bar and grill, featuring live music, live sports, a rooftop patio bar and breathtaking ocean views. </p>
-                    </div> */}
+
                 </div>
             </section>
             <section className='home-3'>
@@ -113,66 +108,6 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
                 </video>
                 </div>
             </section>
-            {/* <section className='home-2'>
-                <div className='home-2-about'>
-                    <div className='home-2-about-text'>
-                        <div>
-                            <h4>About us</h4>
-                            <p className='home-2-atc'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <Link to="/react-rails-restaurant-frontend/new">
-                                <button>Book a table</button>
-                            </Link>
-                        </div>
-                        <img src={tripadvisor} alt="tripadvisor choice award 2023" />
-                    </div>
-                <hr className='hr-break' />
-                    <div className="home-2-about-text-private-container">
-                        <div className='home-2-about-text-private'>
-                            <div>
-                                <h4>Private Events</h4>
-                                <p>Savoré can accommodate any private events from weddings to dinner parties. We have a rooftop area that offers a secluded area for guests. The area allows guests to enjoy Savoré in an intimate setting, looking out over the ocean. We will tailor your experience by helping provide personalized menu and more.</p>
-                            </div>
-                            <div>
-                                <h4>Live Music & Sports</h4>
-                                <p>With big TVs situated all around our restaurant. We show all major live sports, so that you wont miss a beat. So sit back, eat some delicious food and drink some beers while cheering on your favorite team on the big screen.</p>
-                            </div>
-                        </div>
-                        <p>Contact us to book private dining or events:</p>
-                        <div className='contact-private'>
-                            <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='sm'/> (230) 2632599</a>
-                            <a href='https://wa.me/23054886740' target='blank'><FontAwesomeIcon icon={faWhatsapp} style={{color: "#0FBA18",}}  size='lg' /> <span> (230) 2632599</span></a>
-                        </div>
-                    </div>
-                    <hr className='hr-break' />
-                    <div className='home-2-about-gallery'>
-                        <h3>Gallery</h3>
-                        <div className='home-2-about-gallery-images'>
-                            <img src={chicken} alt="Beach House Food" className='home-2-about-gallery-image'/>
-                            <img src={grill} alt="Beach House Food" className='home-2-about-gallery-image'/>
-                            <img src={burger} alt="Beach House Food" className='home-2-about-gallery-image'/>
-                            <img src={pizza} alt="Beach House Food" className='home-2-about-gallery-image'/>
-                            <img src={curry} alt="Beach House Food" className='home-2-about-gallery-image'/>
-                            <img src={seafoodPlatter} alt="Beach House Food" className='home-2-about-gallery-image'/>
-                        </div>
-                    </div>
-                    <hr className='hr-break' />
-                    <div className='home-2-about-location'>
-                        <div className='home-2-about-location-info'>
-                            <img src={location} alt="Beach House Food" className='home-2-about-location-image'/>
-                            <div className='home-2-alc'>
-                                <h3>Location & Hours</h3>
-                                <p>Royal Rd., B13, Grand Baie, Mauritius</p>
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=-20.01557109059909,57.58057550851208" target='blank'><button >Directions</button></a>
-                                <hr className='hr-break-directions' />
-                                <p>Open Times: Monday - Sunday, 12:00 - 22:00</p>
-                                <Link to="/react-rails-restaurant-frontend/new">
-                                    <button>Book a table</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
         </div>
     )
 }
