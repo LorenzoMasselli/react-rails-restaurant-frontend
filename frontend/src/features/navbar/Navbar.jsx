@@ -15,7 +15,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
     
     return (
         <nav className='navbar' >
-            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(0,0,0,0.3)": pathname !== "/react-rails-restaurant-frontend/" ? "rgba(0,0,0,0.3)" : "rgba(0, 0, 0, 0)"}}>
+            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(0,0,0,0.3)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(0,0,0,0.3)" : "rgba(0, 0, 0, 0)"}}>
                 <div className='navbar-1-left'>
                     <div className='navbar-1-contacts'>
                         {/* <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='sm'/> (230) 2632599</a>
@@ -24,7 +24,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
                         <a href="https://www.google.com/maps/dir/?api=1&destination=-20.01557109059909,57.58057550851208">20.0156° S, 57.5806° E </a>
                     </div>
                 </div>
-                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/" ? "block" : "none"}}>Savoré</Link>
+                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/home" ? "block" : "none"}}>Savoré</Link>
                 <div className='navbar-links'>
                     <div>
                         {currUser && currUser.admin ? (

@@ -19,7 +19,8 @@ function NotFoundRedirect() {
 function AppRoutes({currUser, setCurrUser, isTitleAtTop, handleTitleAtTopChange, handleScrollPosition, handleHomeTwoAtTopChange}) {    
     return (
         <Routes>
-            <Route path="/react-rails-restaurant-frontend/" index element={<BookingHomepage isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange}  handleScrollPosition={handleScrollPosition} handleHomeTwoAtTopChange={handleHomeTwoAtTopChange}/> } /> 
+            <Route path="/react-rails-restaurant-frontend/" index element={ <User currUser={currUser} setCurrUser={setCurrUser} />} /> 
+            <Route path="/react-rails-restaurant-frontend/home"  element={<BookingHomepage isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange}  handleScrollPosition={handleScrollPosition} handleHomeTwoAtTopChange={handleHomeTwoAtTopChange}/> } /> 
             {currUser && currUser.admin ? (
                 <>
                     <Route path="/react-rails-restaurant-frontend/bookings" element={<BookingsList currUser={currUser} setCurrUser={setCurrUser} />} /> 

@@ -3,18 +3,8 @@ import React, {useState, useEffect}  from 'react'
 import { Link } from 'react-router-dom'
 import './BookingPages.css'
 import './Homepage.css'
-import chicken from './images/food1.jpg'
-import burger from './images/burger.jpg'
 import video from './images/vid1.mp4'
-import grill from './images/beach-house-steak.jpeg'
-import pizza from './images/pizza.jpg'
-import curry from './images/curry.jpg'
-import location from './images/The-Beach-House-Location-Map.jpg'
-import tripadvisor from './images/tripadvisor-choice-award.png'
-import seafoodPlatter from './images/seafood-platter.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { faPhone } from '@fortawesome/free-solid-svg-icons'
+
 
 
 // eslint-disable-next-line react/prop-types
