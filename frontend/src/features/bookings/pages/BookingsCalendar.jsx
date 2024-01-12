@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 // import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faBookOpen, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faBookOpen, faUserGroup, faChevronLeft, faChevronRight, } from '@fortawesome/free-solid-svg-icons'
 import './BookingPages.css'
 
 function filterBookingsByDateSpecified(bookings, activeDate) {
@@ -10,7 +10,7 @@ function filterBookingsByDateSpecified(bookings, activeDate) {
 
 
 // eslint-disable-next-line react/prop-types
-function BookingsCalendar({ bookings, activeDate, formattedDate }){
+function BookingsCalendar({ bookings, activeDate, formattedDate, backwardDate, forwardDate }){
     const [searchQuery, setSearchQuery] = useState('');
 
     const bookingsByDateSpecified = filterBookingsByDateSpecified(bookings, activeDate);
@@ -25,7 +25,6 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    // /////////////////////////////////////////////
 
     const timeBlocks =  useMemo(() => {
         const slots = [];
@@ -117,6 +116,13 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
                             value={searchQuery}
                             onChange={handleSearchChange}
                             />
+                        </div>
+                        <div className='date-search'>
+                            <div className='date-clicker'>
+                                <FontAwesomeIcon icon={faChevronLeft} onClick={backwardDate} className='clickable'/>
+                                <p>{formattedDate}</p>
+                                <FontAwesomeIcon icon={faChevronRight} onClick={forwardDate} className='clickable'/>
+                            </div>
                         </div>
                         <div className='bookings-header'>
                             <h4>Reservations</h4>

@@ -290,17 +290,11 @@ button:disabled {
 
   .booking-container {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
     position: relative;
     min-height: 80vh;
-    margin-top: 10vh;
-    gap: 1rem;
-    background-color: white;
-    color: black;
-    min-width: 1344px;
-    overflow: scroll;
+    margin-top: 55px;
+    gap: 2rem;
+    box-sizing: border-box;
  }
  .bookings-days {
      display: flex;
@@ -314,17 +308,17 @@ button:disabled {
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     width: 100vw;
+     width: 90vw;
      overflow-x: scroll;
  }
  
  .date-search {
      display: flex;
-    width: 100vw;
      white-space: nowrap;
      justify-content: center;
      align-items: center;
      gap: 30px;
+     width: 260px;
  }
  
  .booking-date-search-input {
@@ -550,7 +544,7 @@ button:disabled {
     display: flex;
     align-items: center;
     width: 254px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
 }
 
@@ -590,11 +584,10 @@ button:disabled {
 .search-confirmed-bookings {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    width: 250px;
+    gap: 0.4rem;
+    width: 206px;
     background-color: white;
     border-radius: 24px;
-    margin-bottom: 1rem;
     padding: 0.2rem 0.6rem;
     border: 1px solid rgba(0, 0, 0, 0.299);
 }
@@ -609,7 +602,13 @@ button:disabled {
 
 .menu-options {
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #101923;
+    padding: 1.2rem;
+    position: relative;
     gap: 2rem;
+    box-sizing: border-box;
 }
 
 
@@ -652,10 +651,9 @@ th {
 .table-container {
     background-color: white;
     color: black;
-    padding: 0rem 2rem; 
     margin-bottom: 4rem; 
     position: relative;
-    width: 1280px;
+    width: 1330px;
 }
 
 
@@ -707,6 +705,7 @@ th {
 .note-label {
     color: rgba(0, 0, 0, 0.9);
     font-style: italic;
+    overflow: scroll;
 }
 
 .name-search {
@@ -837,7 +836,7 @@ th {
    }
 
    .calendar-container {
-    width: 95vw;
+    width: 90vw;
     overflow: scroll;
     margin-bottom: 5rem;
    }
@@ -933,7 +932,7 @@ th {
 
    .bookings-data-search {
     display: flex;
-    width: 95vw;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
    }
@@ -966,3 +965,35 @@ th {
     border-style: solid !important;
     border-width: 1px 1px 1px 1px !important;
    }
+
+   .menu-option-container {
+    position: relative;
+    cursor: pointer;
+  }
+
+    #calendar-hover {
+    position: absolute;
+    color: white;
+    top: -25px;
+    right: -18px;
+    padding: 0.5rem;
+    border-radius: 24px;
+    margin: 0;
+    font-size: 10px;
+    display: none;
+    }
+    #dashboard-hover {
+    position: absolute;
+    color: white;
+    top: -27px;
+    right: -22px;
+    padding: 0.5rem;
+    border-radius: 24px;
+    margin: 0;
+    font-size: 10px;
+    display: none;
+    }
+
+   .menu-option-container:hover #dashboard-hover, .menu-option-container:hover #calendar-hover {
+  display: block;
+}

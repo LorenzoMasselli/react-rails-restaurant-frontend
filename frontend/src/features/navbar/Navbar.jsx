@@ -15,7 +15,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
     
     return (
         <nav className='navbar' >
-            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(255, 255, 255, 1)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(255, 252, 252, 1)" : "rgba(255, 255, 255, 0.5)"}}>
+            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(255, 255, 255, 1)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.5)"}}>
                 <div className='navbar-1-left' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
                     <div className='navbar-1-contacts'>
                         {/* <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='sm'/> (230) 2632599</a>

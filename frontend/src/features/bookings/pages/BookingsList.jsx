@@ -6,7 +6,7 @@ import BookingsTable from './BookingsTable'
 import BookingsCalendar from './BookingsCalendar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // eslint-disable-next-line no-unused-vars
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight, faShapes, faSquarePollHorizontal } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -65,7 +65,6 @@ function BookingsList({currUser, setCurrUser}) {
         //    }
         //  });
         //  console.log(emailCountMap)
-   
 
 
     
@@ -132,21 +131,21 @@ function BookingsList({currUser, setCurrUser}) {
     return (
       <div className='booking-container'>
         <div className='menu-options'>
-          <p onClick={() => setActiveSection('all')} className={`menu-option ${activeSection === 'all' ? 'active-menu' : ''}`}>Dashboard</p>
-          <p onClick={() => setActiveSection('confirmed')} className={`menu-option ${activeSection === 'confirmed' ? 'active-menu' : ''}`}>Reservations</p>
-        </div>
-        {activeSection === 'confirmed' ? ( 
-          <div className='date-search'>
-            <div className='date-clicker'>
-              <FontAwesomeIcon icon={faChevronLeft} onClick={backwardDate} className='clickable'/>
-              <p>{formattedDate}</p>
-              <FontAwesomeIcon icon={faChevronRight} onClick={forwardDate} className='clickable'/>
-            </div>
+          <div className="menu-option-container" onClick={() => setActiveSection('all')}>
+            <p id='dashboard-hover'>Dashboard</p>
+            <FontAwesomeIcon icon={faShapes} style={{color: "#ffffff",}} size="xl" />
           </div>
-          ) : ( <></>
-        )}
+          <div className="menu-option-container" onClick={() => setActiveSection('confirmed')}>
+            <p id='calendar-hover'>Calendar</p>
+            <FontAwesomeIcon icon={faSquarePollHorizontal} style={{color: "#ffffff",}} size="xl" />
+          </div>
+        </div>
         {activeSection === 'confirmed' ? (
-          <BookingsCalendar bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} />
+          <div>
+            <h2 className="dashboard-heading">Calendar</h2>
+            <BookingsCalendar bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} backwardDate={backwardDate}
+            forwardDate={forwardDate} />
+          </div>
           ) : (
             <BookingsTable bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} currUser={currUser} setCurrUser={setCurrUser}/>
           )}
