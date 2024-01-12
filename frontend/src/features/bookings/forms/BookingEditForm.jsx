@@ -1,39 +1,47 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { useNavigate, useParams } from 'react-router-dom'
 import './BookingForms.css'
 
-function BookingEditForm() {
+function BookingEditForm({bookingId, onFormClose, onUpdateBooking }) {
     const [booking, setBooking] = useState(null)
     const { id } = useParams();
     const [, setLoading] = useState(true);
     const [, setError] = useState(null)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     useEffect(() => {
         const fetchCurrentBooking = async () => {
-            try {
-                const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`);
-                if (response.ok) {
-                  const json = await response.json();
-                  setBooking(json);
-                } else {
-                  throw response;
-                }
-              } catch (e) {
-                setError('An error occured');
-                console.log('An error occured');
-              } finally {
-                setLoading(false);
-              }
-            }    
-        fetchCurrentBooking()
-    }, [id])
+          try {
+            const response = await fetch(
+              `https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${bookingId}`
+            );
+    
+            if (response.ok) {
+              const json = await response.json();
+              setBooking(json);
+            } else {
+              throw response;
+            }
+          } catch (e) {
+            setError('An error occurred while fetching the booking');
+            console.error('An error occurred while fetching the booking:', e);
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        if (bookingId) {
+          fetchCurrentBooking();
+        }
+      }, [bookingId]);
+    
     
       const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`, {
+            const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${bookingId}`, {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json",
@@ -51,8 +59,9 @@ function BookingEditForm() {
             })
 
             if (response.ok) {
-                const { id } = await response.json()
-                navigate(`/react-rails-restaurant-frontend/bookings/${id}`)
+                const updatedBooking = await response.json();
+                onFormClose();
+                onUpdateBooking(updatedBooking);
             } else {
                 throw response
             }
@@ -67,7 +76,7 @@ function BookingEditForm() {
         <div className='align-form'>  
             <div className='form-container'>
                 <h2>Edit Booking</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='edit-form'>
                     <div className="edit">
                         <label htmlFor="name-input">Name: </label>
                         <input 
@@ -137,7 +146,7 @@ function BookingEditForm() {
                     </div>
                     <div className="date-time-edit">
                         <div className="edit">
-                            <label htmlFor="confirmed-input">Booking confirmation: </label>
+                            <label htmlFor="confirmed-input" className='booking-confirmation-label'>Booking confirmation:</label>
                             <select 
                                 type="text"
                                 id="confirmed-input"
@@ -178,7 +187,7 @@ function BookingEditForm() {
                             placeholder="Dietary Restrictions / Reservation Notes"
                             />
                     </div>
-                    <div>
+                    <div className='edit-form-button-container'>
                         <button className="form-button" type="submit">Save your edit</button>
                     </div>
             </form>

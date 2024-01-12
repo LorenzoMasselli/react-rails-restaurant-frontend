@@ -46,7 +46,7 @@ function BookingsList({currUser, setCurrUser}) {
           }
         }
         loadBookings();
-      }, []);
+      }, [setBookings]);
 
         // store emails list and repeat customers 
          // Create a map to store the count of each email
@@ -147,7 +147,7 @@ function BookingsList({currUser, setCurrUser}) {
             forwardDate={forwardDate} />
           </div>
           ) : (
-            <BookingsTable bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} currUser={currUser} setCurrUser={setCurrUser}/>
+            <BookingsTable setBookings={setBookings}  bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} currUser={currUser} setCurrUser={setCurrUser}/>
           )}
       </div>
   )
