@@ -132,8 +132,8 @@ function BookingsList({currUser, setCurrUser}) {
     return (
       <div className='booking-container'>
         <div className='menu-options'>
-          <p onClick={() => setActiveSection('confirmed')} className={`menu-option ${activeSection === 'confirmed' ? 'active-menu' : ''}`}>Reservations</p>
           <p onClick={() => setActiveSection('all')} className={`menu-option ${activeSection === 'all' ? 'active-menu' : ''}`}>Dashboard</p>
+          <p onClick={() => setActiveSection('confirmed')} className={`menu-option ${activeSection === 'confirmed' ? 'active-menu' : ''}`}>Reservations</p>
         </div>
         {activeSection === 'confirmed' ? ( 
           <div className='date-search'>

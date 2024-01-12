@@ -26,7 +26,7 @@ function Footer() {
                 <div className='footer-right'>
                         <h3 className='footer-right-header'>Contact & admins</h3>
                         <a href='tel:23000000000' target='blank'>+ (44) 0000 0000</a>
-                        <Link to="/react-rails-restaurant-frontend/admin"> <span style={{color:"white"}}>Admin Login</span></Link>
+                        <Link to="/react-rails-restaurant-frontend/admin"> <span style={{color:"black"}}>Admin Login</span></Link>
                 </div>
             </div>
         </footer>

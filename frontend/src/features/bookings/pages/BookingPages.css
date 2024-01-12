@@ -960,3 +960,9 @@ th {
     padding: 1rem 2rem;
     border-radius: 12px;
    }
+
+   .final-block {
+    border-color: rgba(0,0,0,.12) !important;
+    border-style: solid !important;
+    border-width: 1px 1px 1px 1px !important;
+   }

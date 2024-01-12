@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 import './BookingPages.css'
 import './Homepage.css'
 import video from './images/vid1.mp4'
+import NewBookingForm from '../forms/NewBookingForm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 
 // eslint-disable-next-line react/prop-types
-function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosition, handleHomeTwoAtTopChange }) {
+function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosition, handleHomeTwoAtTopChange, activeForm, currUser, setCurrUser, setActiveForm }) {
     // eslint-disable-next-line no-unused-vars
     const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -17,19 +20,19 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
         const position = window.scrollY;
         setScrollPosition(position);
 
-        const movingText = document.querySelector(".home-1-title")
+        const movingText = document.querySelector(".home-1-t")
         if (movingText) {
             const titleClientRect = movingText.getBoundingClientRect();
             const distanceToTop = titleClientRect.top;
-            handleTitleAtTopChange(distanceToTop<35);
+            handleTitleAtTopChange(distanceToTop<-180);
             handleScrollPosition(position)
         }
 
-        const homeTwo = document.querySelector(".home-2")
+        const homeTwo = document.querySelector(".home-3")
         if (homeTwo) {
             const homeTwoClientRect = homeTwo.getBoundingClientRect();
             const distanceToTopHomeTwo = homeTwoClientRect.top;
-            handleHomeTwoAtTopChange(distanceToTopHomeTwo < 280)
+            handleHomeTwoAtTopChange(distanceToTopHomeTwo < 310)
         }
     };
 
@@ -57,6 +60,7 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
    
     return (
         <div className='home'>
+            {activeForm ? <div className="home-new-booking-form"><NewBookingForm currUser={currUser} setCurrUser={setCurrUser} /><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
             <section className='home-1'>
                 {/* <div className="home-1-overlay" style={{backgroundColor: overlayFormula}}> */}
                 <div className="home-1-overlay" style={{backgroundColor: 'rgba(0, 0, 0, 0.3)'}}>
@@ -80,9 +84,6 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
                 <div className='events'>
                     <h1 className='header'>Events</h1>
                     <p className='events-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                    <Link to="/react-rails-restaurant-frontend/new">
-                        <button className='event-button'>Book an event</button>
-                    </Link>
                 </div>
             </section>
             <section className='home-5'>

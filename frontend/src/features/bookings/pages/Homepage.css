@@ -38,6 +38,7 @@
     font-size: 12rem;
     position: absolute;
     top: 11rem;
+    color: white;
 }
 
 
@@ -234,6 +235,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .about {
@@ -270,6 +272,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .events {
@@ -307,6 +310,7 @@
     display: flex;
     justify-content: center;
     /* align-items: center; */
+    color: white;
 }
 
 #background-video {
@@ -336,4 +340,20 @@
 .chef-text {
     width: 40vw;
     text-align: justify;
+}
+
+.home-new-booking-form {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #101923;
+    z-index: 4;
+    border-radius: 12px;
+    padding: 1rem;
+    padding-left: 1.2rem;
+}
+
+.home {
+    position: relative;
 }

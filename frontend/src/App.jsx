@@ -12,6 +12,7 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [scroll, setScroll] = useState(0)
   const [isHomeTwoAtTop, setIsHomeTwoAtTop] = useState(false)
+  const [activeForm, setActiveForm] = useState(false);
 
   const handleTitleAtTopChange = (value) => {
     setIsTitleAtTop(value);
@@ -23,12 +24,17 @@ function App() {
     setIsHomeTwoAtTop(value);
   };
 
+  const handleSetActiveForm = (value) => {
+    setActiveForm(value);
+  };
+
+
   return (
     <Router>
       <div className="app">
-        <Navbar currUser={currUser} isTitleAtTop={isTitleAtTop} isHomeTwoAtTop={isHomeTwoAtTop}/>
+        <Navbar currUser={currUser} isTitleAtTop={isTitleAtTop} isHomeTwoAtTop={isHomeTwoAtTop} setActiveForm={handleSetActiveForm}/>
         <div className="app-body">
-          <AppRoutes currUser={currUser} setCurrUser={setCurrUser} isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange} handleScrollPosition={handleScrollPosition} handleHomeTwoAtTopChange={handleHomeTwoAtTopChange}/>
+          <AppRoutes activeForm={activeForm} currUser={currUser} setCurrUser={setCurrUser} isTitleAtTop={isTitleAtTop} handleTitleAtTopChange={handleTitleAtTopChange} handleScrollPosition={handleScrollPosition} handleHomeTwoAtTopChange={handleHomeTwoAtTopChange} setActiveForm={handleSetActiveForm}/>
         </div>
         <Footer />
       </div>

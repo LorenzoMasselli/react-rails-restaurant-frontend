@@ -293,7 +293,7 @@ function BookingsCalendar({ bookings, activeDate, formattedDate }){
                                                 <tr className="table-grid-row">
                                                 {timeBlocks.map((time, index) => (
                                                     <React.Fragment key={index}>
-                                                        <td className="c last" data-time={time} ></td>
+                                                        <td className={`c ${time === '22:45' ? 'final-block' : 'last'}`} data-time={time} ></td>
                                                     </React.Fragment>
                                                 ))}
                                                 </tr>

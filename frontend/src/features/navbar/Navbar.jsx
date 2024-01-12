@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,14 +9,14 @@ import './Navbar.css'
 import menu from '../bookings/menu/beach-house-menu.pdf'
 
 // eslint-disable-next-line react/prop-types
-function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
+function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
     const { pathname } = useLocation();
 
     
     return (
         <nav className='navbar' >
-            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(0,0,0,0.3)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(0,0,0,0.3)" : "rgba(0, 0, 0, 0)"}}>
-                <div className='navbar-1-left'>
+            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(255, 255, 255, 1)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(255, 252, 252, 1)" : "rgba(255, 255, 255, 0.5)"}}>
+                <div className='navbar-1-left' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
                     <div className='navbar-1-contacts'>
                         {/* <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='sm'/> (230) 2632599</a>
                         <a href='https://wa.me/23054886740' target='blank'><FontAwesomeIcon icon={faWhatsapp} style={{color: "#0FBA18",}} size='lg'/> <span> (230) 54886740</span></a>
@@ -24,7 +24,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
                         <a href="https://www.google.com/maps/dir/?api=1&destination=-20.01557109059909,57.58057550851208">20.0156° S, 57.5806° E </a>
                     </div>
                 </div>
-                <Link to="/react-rails-restaurant-frontend" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/home" ? "block" : "none"}}>Savoré</Link>
+                <Link to="/react-rails-restaurant-frontend/home" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/home" ? "block" : "none"}}>Savoré</Link>
                 <div className='navbar-links'>
                     <div>
                         {currUser && currUser.admin ? (
@@ -35,15 +35,15 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop }) {
                             </>
                         ): null}
                     </div>
-                    <div className='navbar-links-flex'>
+                    <div className='navbar-links-flex' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
                         <a href={menu} target='blank' className='booking-link'>
                             <span className='menu-link-text' >Menu</span>
                         </a>
                     </div>
-                    <div className='navbar-links-flex'>
-                        <Link to="/react-rails-restaurant-frontend/new" className='booking-link shake'>
-                            <button>Book</button>
-                        </Link>
+                    <div className='navbar-links-flex' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
+                        <div className='booking-link shake'>
+                            <button onClick={() => { setActiveForm(true) }} className='main-button'>Book</button>
+                        </div>
                     </div>
                 </div>
             </section>
