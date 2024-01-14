@@ -57,6 +57,29 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
 
     //   };
 
+    const handleIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    useEffect(() => {
+        const elementsToObserve = document.querySelectorAll('.home-1, .home-3, .home-4, .home-5');
+
+        const observer = new IntersectionObserver(handleIntersection, { threshold: 0.2 });
+
+        elementsToObserve.forEach(element => {
+            observer.observe(element);
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
    
     return (
         <div className='home'>

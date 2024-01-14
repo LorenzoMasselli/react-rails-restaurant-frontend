@@ -245,6 +245,9 @@
     align-items: center;
     justify-content: center;
     gap: 0px;
+    transition: 0.5s;
+    transform-origin: left;
+    transform: scale(1);
 }
 
 .header {
@@ -356,4 +359,14 @@
 
 .home {
     position: relative;
+}
+
+
+.home-1, .home-3, .home-4, .home-5 {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.home-1.show, .home-3.show, .home-4.show, .home-5.show  {
+    opacity: 1;
 }

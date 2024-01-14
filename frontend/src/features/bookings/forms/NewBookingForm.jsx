@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './BookingForms.css'
 
 
-function NewBookingForm({currUser, setCurrUser, setBookings }) {
+function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose }) {
     const [name, setName] = useState("")
     const [quantity, setQuantity] = useState("")
     const [phone, setPhone] = useState("")
@@ -37,12 +37,11 @@ function NewBookingForm({currUser, setCurrUser, setBookings }) {
         })
 
         if (response.ok) {
+            onNewFormClose();
             const { id, ...otherData } = await response.json();
-        
-            // Update state with the new booking
             setBookings((prevBookings) => [
+                ...prevBookings,
                 { id, ...otherData },
-                ...prevBookings,  // Keep the existing bookings
             ]);
             if (currUser && currUser.admin) {
                 // navigate(`/react-rails-restaurant-frontend/bookings/`)
@@ -171,7 +170,7 @@ function NewBookingForm({currUser, setCurrUser, setBookings }) {
                         />
                 </div>
                 <div className="button-div">
-                    <button className="form-button" type="submit" disabled={!isValid}>Create a booking</button>
+                    <button className="form-button pointer" type="submit" disabled={!isValid}>Create a booking</button>
                 </div>
            </form>
         </div>

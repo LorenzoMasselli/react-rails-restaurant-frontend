@@ -21,9 +21,9 @@ function BookingsCalendar({ bookings, activeDate, formattedDate, backwardDate, f
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+    // function capitalizeFirstLetter(string) {
+    //     return string.charAt(0).toUpperCase() + string.slice(1);
+    // }
 
 
     const timeBlocks =  useMemo(() => {
@@ -108,14 +108,16 @@ function BookingsCalendar({ bookings, activeDate, formattedDate, backwardDate, f
             {filteredBookings.length >= 0 && (
                 <div className='confirmed-bookings'>
                     <div className="bookings-data-search">
-                        <div className='search-confirmed-bookings'>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            <input
-                            type='text'
-                            placeholder='Search reservations by name'
-                            value={searchQuery}
-                            onChange={handleSearchChange}
-                            />
+                        <div className="bookings-data-search-left">
+                            <div className='search-confirmed-bookings'>
+                                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                <input
+                                type='text'
+                                placeholder='Search reservations by name'
+                                value={searchQuery}
+                                onChange={handleSearchChange}
+                                />
+                            </div>
                         </div>
                         <div className='date-search'>
                             <div className='date-clicker'>

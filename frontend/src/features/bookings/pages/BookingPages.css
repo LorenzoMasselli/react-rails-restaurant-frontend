@@ -292,7 +292,6 @@ button:disabled {
     display: flex;
     position: relative;
     min-height: 80vh;
-    margin-top: 55px;
     gap: 2rem;
     box-sizing: border-box;
  }
@@ -304,12 +303,14 @@ button:disabled {
      white-space: nowrap;
  }
  .confirmed-bookings{
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     width: 90vw;
-     overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90vw;
+    height: 100%;
+    overflow-x: scroll;
+    gap: 2rem;
  }
  
  .date-search {
@@ -606,9 +607,11 @@ button:disabled {
     text-align: center;
     background-color: #101923;
     padding: 1.2rem;
-    position: relative;
-    gap: 2rem;
+    position: absolute;
+    justify-content: space-between;
     box-sizing: border-box;
+    z-index: 5;
+    height: 100%;
 }
 
 
@@ -653,7 +656,7 @@ th {
     color: black;
     margin-bottom: 4rem; 
     position: relative;
-    width: 1330px;
+    width: 90vw;
 }
 
 
@@ -967,33 +970,32 @@ th {
    }
 
    .menu-option-container {
+    gap: 1rem;
     position: relative;
     cursor: pointer;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
   }
 
-    #calendar-hover {
-    position: absolute;
-    color: white;
-    top: -25px;
-    right: -18px;
-    padding: 0.5rem;
-    border-radius: 24px;
-    margin: 0;
-    font-size: 10px;
-    display: none;
-    }
-    #dashboard-hover {
-    position: absolute;
-    color: white;
-    top: -27px;
-    right: -22px;
-    padding: 0.5rem;
-    border-radius: 24px;
-    margin: 0;
-    font-size: 10px;
-    display: none;
-    }
+  #active-menu-dashboard-calendar {
+    background-color: #23374D;
+  }
 
-   .menu-option-container:hover #dashboard-hover, .menu-option-container:hover #calendar-hover {
-  display: block;
-}
+  .menu-options ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  .booking-right {
+    margin-left: 110px;
+  }
+
+  .bookings-header, .bookings-data-search-left {
+    flex-grow: 1;
+    flex-basis: 0;
+  }

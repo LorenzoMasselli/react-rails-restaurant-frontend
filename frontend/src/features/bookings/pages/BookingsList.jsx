@@ -5,8 +5,9 @@ import './BookingPages.css'
 import BookingsTable from './BookingsTable'
 import BookingsCalendar from './BookingsCalendar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from "react-router-dom"
 // eslint-disable-next-line no-unused-vars
-import { faChevronLeft, faChevronRight, faShapes, faSquarePollHorizontal } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight, faShapes, faSquarePollHorizontal, faBars, faHouse } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -16,7 +17,9 @@ function BookingsList({currUser, setCurrUser}) {
     const [, setError] = useState(null)
     const [formattedDate, setFormattedDate] = useState('');
     const [activeDate, setActiveDate] = useState(new Date().toISOString().slice(0, 10))
-    const [activeSection, setActiveSection] = useState('all'); 
+    const [activeSection, setActiveSection] = useState('dashboard'); 
+    const [menuLabelsVisible, setMenuLabelsVisible] = useState(false);
+    const navigate = useNavigate()
     
   
     //  fetch bookings from API
@@ -131,24 +134,54 @@ function BookingsList({currUser, setCurrUser}) {
     return (
       <div className='booking-container'>
         <div className='menu-options'>
-          <div className="menu-option-container" onClick={() => setActiveSection('all')}>
-            <p id='dashboard-hover'>Dashboard</p>
-            <FontAwesomeIcon icon={faShapes} style={{color: "#ffffff",}} size="xl" />
-          </div>
-          <div className="menu-option-container" onClick={() => setActiveSection('confirmed')}>
-            <p id='calendar-hover'>Calendar</p>
-            <FontAwesomeIcon icon={faSquarePollHorizontal} style={{color: "#ffffff",}} size="xl" />
-          </div>
+          <ul>
+            <li>
+              <div className="menu-option-container" style={{display: menuLabelsVisible === true ? "flex": ""}} onClick={() => setMenuLabelsVisible(prevValue => !prevValue)}>
+              <FontAwesomeIcon icon={faBars} size='xl'/>
+                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
+                  Menu
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="menu-option-container" id={activeSection === "dashboard" ? "active-menu-dashboard-calendar" : null} style={{display: menuLabelsVisible === true ? "flex": ""}}  onClick={() => setActiveSection('dashboard')}>
+                <FontAwesomeIcon id='dashboard' icon={faShapes} style={{color: "#ffffff",}} size="xl" />
+                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
+                  Dashboard
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="menu-option-container" id={activeSection === "calendar" ? "active-menu-dashboard-calendar" : null} style={{display: menuLabelsVisible === true ? "flex": ""}}  onClick={() => setActiveSection('calendar')}>
+                <FontAwesomeIcon icon={faSquarePollHorizontal} style={{color: "#ffffff",}} size="xl" />
+                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
+                  Calendar
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div className="menu-option-container" style={{display: menuLabelsVisible === true ? "flex": ""}} onClick={() => navigate('/react-rails-restaurant-frontend/home')}>
+                <FontAwesomeIcon icon={faHouse} style={{color: "#ffffff",}} size="xl" />
+                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
+                  Website
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        {activeSection === 'confirmed' ? (
-          <div>
-            <h2 className="dashboard-heading">Calendar</h2>
-            <BookingsCalendar bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} backwardDate={backwardDate}
-            forwardDate={forwardDate} />
-          </div>
-          ) : (
-            <BookingsTable setBookings={setBookings}  bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} currUser={currUser} setCurrUser={setCurrUser}/>
-          )}
+        <div className='booking-right'>
+          {activeSection === 'calendar' ? (
+            <div>
+              <h2 className="dashboard-heading">Calendar</h2>
+              <BookingsCalendar bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} backwardDate={backwardDate}
+              forwardDate={forwardDate} />
+            </div>
+            ) : (
+              <BookingsTable setBookings={setBookings}  bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} currUser={currUser} setCurrUser={setCurrUser}/>
+            )}
+        </div>
       </div>
   )
 }

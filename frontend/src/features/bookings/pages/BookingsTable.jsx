@@ -17,11 +17,14 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking, currUser, setC
     const handleEditClick = (bookingId) => {
         setSelectedBookingId(bookingId);
         setActiveEditForm(true);
-      };
+    };
 
-      const handleEditFormClose = () => {
+    const handleEditFormClose = () => {
         setActiveEditForm(false);
         setSelectedBookingId(null);
+    };
+    const handleNewFormClose = () => {
+        setActiveForm(false);
     };
 
     function capitalizeFirstLetter(string) {
@@ -48,10 +51,11 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking, currUser, setC
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     
-    const currentBookings = filteredBookings.reverse().slice(startIndex, endIndex);
+    const currentBookings = [...filteredBookings].reverse().slice(startIndex, endIndex);
+
     return (
         <section className="table-container">
-            {activeForm ? <div className="table-new-booking-form"><NewBookingForm setBookings={setBookings} currUser={currUser} setCurrUser={setCurrUser} /><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
+            {activeForm ? <div className="table-new-booking-form"><NewBookingForm setBookings={setBookings} currUser={currUser} setCurrUser={setCurrUser} onNewFormClose={handleNewFormClose}/><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
             {activeEditForm && (
         <div className="table-new-booking-form">
           <BookingEditForm bookingId={selectedBookingId} onFormClose={handleEditFormClose}
@@ -121,13 +125,13 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking, currUser, setC
                     <tr key={booking.id} className="table-row">
                     <td>{capitalizeFirstLetter(booking.name)}</td>
                     <td>{booking.confirmed ? <p className="status-confirmed">Confirmed</p> : <p className="status-pending">Pending</p>}</td>
-                    <td>{booking.confirmed ? "" : <p className="confirm-icon"><FontAwesomeIcon onClick={() => confirmBooking(booking)} icon={faCheck} style={{color: "23d100", paddingRight: "1rem"}}/></p> } </td>
+                    <td style={{paddingRight: "12px"}}>{booking.confirmed ? "" : <p className="confirm-icon"><FontAwesomeIcon onClick={() => confirmBooking(booking)} icon={faCheck} style={{color: "23d100", paddingRight: "1rem"}}/></p> } </td>
                     <td><p className="date-label">{booking.date}</p></td>
                     <td><p className="guests-count">{booking.quantity}</p></td>
                     <td>{booking.time}</td>
                     <td>{booking.email}</td>
                     <td><p onClick={() => handleEditClick(booking.id)} className="confirm-icon"><FontAwesomeIcon icon={faPenToSquare} style={{color: "#023047", paddingRight: "1rem"}}/></p></td>
-                    <td><p className="confirm-icon"><FontAwesomeIcon onClick={() => deleteBooking(booking.id)} icon={faXmark} style={{color: "d10000", paddingRight: "1rem"}}/></p></td>
+                    <td style={{paddingRight: "12px"}}><p className="confirm-icon"><FontAwesomeIcon onClick={() => deleteBooking(booking.id)} icon={faXmark} style={{color: "d10000", paddingRight: "1rem"}}/></p></td>
                     <td>{booking.note ? <p className="note-label">{booking.note}</p> : <p className="no-instructions">No instructions</p>}</td>
                     </tr>
                     

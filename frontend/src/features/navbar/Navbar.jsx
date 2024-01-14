@@ -14,13 +14,10 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
 
     
     return (
-        <nav className='navbar' >
+        <nav className='navbar' style={{display: pathname !== "/react-rails-restaurant-frontend/bookings" ? "flex" : "none"}}>
             <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(255, 255, 255, 1)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.5)"}}>
                 <div className='navbar-1-left' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
                     <div className='navbar-1-contacts'>
-                        {/* <a href='tel:2302632599' target='blank'><FontAwesomeIcon icon={faPhone} style={{color: "white",}} size='sm'/> (230) 2632599</a>
-                        <a href='https://wa.me/23054886740' target='blank'><FontAwesomeIcon icon={faWhatsapp} style={{color: "#0FBA18",}} size='lg'/> <span> (230) 54886740</span></a>
-                        <p>Mon-Sun 12:00 - 22:00 </p> */}
                         <a href="https://www.google.com/maps/dir/?api=1&destination=-20.01557109059909,57.58057550851208">20.0156° S, 57.5806° E </a>
                     </div>
                 </div>
