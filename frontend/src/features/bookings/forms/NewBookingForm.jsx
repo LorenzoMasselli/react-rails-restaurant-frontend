@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './BookingForms.css'
 
 
-function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose }) {
+function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose, onNewFormCloseHome }) {
     const [name, setName] = useState("")
     const [quantity, setQuantity] = useState("")
     const [phone, setPhone] = useState("")
@@ -14,9 +14,11 @@ function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose }) {
     const [confirmed, setConfirmed] = useState(false)
     const [isValid, setIsValid] = useState(false);
 
+    // const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    // const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+
     // This effect runs when 'data' changes
     useEffect(() => {
-    // If there is data, the form is valid
     setIsValid(quantity && time);
     }, [quantity, time]);
 
@@ -38,6 +40,7 @@ function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose }) {
 
         if (response.ok) {
             onNewFormClose();
+            onNewFormCloseHome();
             const { id, ...otherData } = await response.json();
             setBookings((prevBookings) => [
                 ...prevBookings,

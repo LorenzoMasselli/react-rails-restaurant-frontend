@@ -15,6 +15,13 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
     // eslint-disable-next-line no-unused-vars
     const [scrollPosition, setScrollPosition] = useState(0);
 
+    const handleNewFormCloseHome = () => {
+        setActiveForm(false);
+        setTimeout(() => {
+            window.alert("Congratulations! You have requested a new booking. You will receive an email once the booking has been accepted.🎉");
+        }, 500);
+    };
+
 
     const handleScroll = () => {
         const position = window.scrollY;
@@ -83,7 +90,7 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
    
     return (
         <div className='home'>
-            {activeForm ? <div className="home-new-booking-form"><NewBookingForm currUser={currUser} setCurrUser={setCurrUser} /><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
+            {activeForm ? <div className="home-new-booking-form"><NewBookingForm currUser={currUser} setCurrUser={setCurrUser} onNewFormClose={handleNewFormCloseHome}/><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
             <section className='home-1'>
                 {/* <div className="home-1-overlay" style={{backgroundColor: overlayFormula}}> */}
                 <div className="home-1-overlay" style={{backgroundColor: 'rgba(0, 0, 0, 0.3)'}}>
