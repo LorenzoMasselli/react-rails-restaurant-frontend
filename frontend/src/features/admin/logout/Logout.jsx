@@ -3,7 +3,7 @@ import './Logout.css'
 const Logout =({setCurrUser})=>{
     const logout=async (setCurrUser)=>{
         try {
-            const response=await fetch("https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//logout",{
+            const response=await fetch(`${import.meta.env.VITE_LOGOUT_TEXT_KEY}`,{
                 method: "delete",
                 headers: {
                     "content-type": "application/json",

@@ -12,7 +12,7 @@ function BookingDetails() {
     useEffect(() => {
         const fetchCurrentBooking = async () => {
             try {
-                const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`)
+                const response = await fetch(`${import.meta.env.VITE_API_KEY}/${id}`)
                 if (response.ok) {
                     const json = await response.json()
                     setBooking(json)
@@ -29,7 +29,7 @@ function BookingDetails() {
 
     const deleteBooking = async () => {
         try {
-          const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`, {
+          const response = await fetch(`${import.meta.env.VITE_API_KEY}/${id}`, {
             method: "DELETE"
           });
           if (response.ok) {
