@@ -26,7 +26,7 @@ function BookingsList({currUser, setCurrUser}) {
     useEffect(() => {
         async function loadBookings() {
           try {
-            const response = await fetch(`${import.meta.env.VITE_API_KEY}`);
+            const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings`);
             if (response.ok) {
               const json = await response.json();
       
@@ -73,7 +73,7 @@ function BookingsList({currUser, setCurrUser}) {
     
     const confirmBooking = async (booking) => {
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_KEY}/${booking.id}`, {
+          const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${booking.id}`, {
             method: "PUT",
                 headers: {
                     "Content-type": "application/json",
@@ -97,7 +97,7 @@ function BookingsList({currUser, setCurrUser}) {
 
     const deleteBooking = async (id) => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_KEY}/${id}`, {
+        const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`, {
           method: "DELETE"
         });
         if (response.ok) {

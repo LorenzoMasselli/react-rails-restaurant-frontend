@@ -8,7 +8,7 @@ const Login = ({setCurrUser, setShow}) =>{
   const formRef = useRef()
   const login = async (userInfo, setCurrUser)=>{
     try{
-        const response = await fetch(`${import.meta.env.VITE_LOGIN_TEXT_KEY}`, {
+        const response = await fetch("https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//login", {
             method: "post",
             headers: {
                 'content-type': 'application/json',

@@ -3,7 +3,7 @@ const Signup=({setCurrUser, setShow})=>{
     const formRef = useRef()
     const signup=async (userInfo, setCurrUser)=>{
         try{
-            const response = await fetch(`${import.meta.env.VITE_SIGNUP_TEXT_KEY}`, {
+            const response = await fetch("https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//signup", {
                 method: 'post',
                 headers: {
                     "content-type": 'application/json',
