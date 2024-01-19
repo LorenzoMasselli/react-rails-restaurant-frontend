@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import './ImageSlider.css'
 import FoodSticker from './food-sticker.svg';
 import beachHouse1 from './sliderImages/beach-house-1.jpeg';

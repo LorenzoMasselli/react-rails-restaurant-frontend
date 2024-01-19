@@ -1,4 +1,3 @@
-import React from "react";
 import './BookingPages.css'
 import NewBookingForm from '../forms/NewBookingForm'
 

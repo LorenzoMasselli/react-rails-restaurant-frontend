@@ -1,11 +1,6 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState} from 'react';
 import { Link, useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types';
 import './Navbar.css'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-// import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import menu from '../bookings/menu/beach-house-menu.pdf'
 
 // eslint-disable-next-line react/prop-types
@@ -48,5 +43,12 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
     )
 
 }
+
+Navbar.propTypes = {
+    currUser: PropTypes.shape({
+        admin: PropTypes.bool.isRequired,
+    }),
+};
+
 
 export default Navbar

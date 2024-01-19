@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useState, useEffect}  from 'react'
-import { Link } from 'react-router-dom'
+import {useState, useEffect}  from 'react'
 import './BookingPages.css'
 import './Homepage.css'
 import video from './images/vid1.mp4'
