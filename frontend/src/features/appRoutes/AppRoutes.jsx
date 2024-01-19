@@ -1,4 +1,4 @@
-import {React, useEffect} from 'react';
+import { useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import {Route, Routes, useNavigate} from 'react-router-dom'
 import BookingsList from '../bookings/pages/BookingsList'

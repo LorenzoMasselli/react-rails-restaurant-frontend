@@ -30,7 +30,7 @@ function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose, onN
 
         const bookingData = { name, quantity, phone, email, confirmed, time, date, note }
 
-        const response = await fetch("https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings", {
+        const response = await fetch(`${import.meta.env.VITE_API_KEY}`, {
             method: "Post",
             headers: {
                 "Content-type": "application/json",

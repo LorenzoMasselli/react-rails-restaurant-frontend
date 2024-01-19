@@ -3,7 +3,7 @@ const PrivateText=({currUser})=>{
     const [message, setMessage]=useState(null)
     const getText=async ()=>{
         try {
-            const response = await fetch("https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//private/test", {
+            const response = await fetch(`${import.meta.env.VITE_PRIVATE_TEXT_KEY}`, {
                 method: "get",
                 headers: {
                     "content-type": "application/json",

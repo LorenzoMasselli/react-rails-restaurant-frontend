@@ -1,0 +1,1 @@
+module.exports = "frontend/src/features/bookings/pages/images/vid1.mp4";

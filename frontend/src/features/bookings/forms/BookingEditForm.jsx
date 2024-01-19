@@ -15,7 +15,7 @@ function BookingEditForm({bookingId, onFormClose, onUpdateBooking }) {
         const fetchCurrentBooking = async () => {
           try {
             const response = await fetch(
-              `https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${bookingId}`
+              `${import.meta.env.VITE_API_KEY}/${bookingId}`
             );
     
             if (response.ok) {
@@ -41,7 +41,7 @@ function BookingEditForm({bookingId, onFormClose, onUpdateBooking }) {
       const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${bookingId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_KEY}/${bookingId}`, {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json",

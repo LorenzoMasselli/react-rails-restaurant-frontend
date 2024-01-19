@@ -43,25 +43,13 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, []);
-
-    useEffect(() => {
-        // console.log(scrollPosition)
-        // handleScrollPosition(scrollPosition)
-    }, [scrollPosition])
-    
-    // const overlayFormula = `rgba(0, 0, 0,${(0.7 * scrollPosition) / 700 + 0.05})`
-
-    // const rootStyle = {
-    //     '--height': `${0.1 * scrollPosition}px`,
-    //     '--size': `${105-(scrollPosition/8.8)}px`,
-
-    //   };
 
     const handleIntersection = (entries, observer) => {
         entries.forEach(entry => {
@@ -74,7 +62,6 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
 
     useEffect(() => {
         const elementsToObserve = document.querySelectorAll('.home-1, .home-3, .home-4, .home-5');
-
         const observer = new IntersectionObserver(handleIntersection, { threshold: 0.2 });
 
         elementsToObserve.forEach(element => {

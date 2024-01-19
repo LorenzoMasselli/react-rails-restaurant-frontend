@@ -4,6 +4,10 @@
     "private":true,
     "version":"0.0.0",
     "type":"module",
+    "testEnvironment": "jsdom",
+    "transform": {
+        "^.+\\.jsx?$": "babel-jest"
+      },
     "scripts":{
         "dev":"vite",
         "test":"jest --passWithNoTests",
