@@ -9,14 +9,14 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
 
     
     return (
-        <nav className='navbar' style={{display: pathname !== "/react-rails-restaurant-frontend/bookings" ? "flex" : "none"}}>
-            <section className='navbar-1' style={{backgroundColor: isHomeTwoAtTop ? "rgba(255, 255, 255, 1)": pathname !== "/react-rails-restaurant-frontend/home" ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.5)"}}>
-                <div className='navbar-1-left' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
+        <nav className='navbar' role="navigation" style={{display: pathname !== "/react-rails-restaurant-frontend/bookings" ? "flex" : "none"}}>
+            <section className='navbar-1' role="navigation-1" style={{backgroundColor: isHomeTwoAtTop ? "rgba(255, 255, 255)": "rgba(255, 255, 255, 0.5)"}}>
+                <div className='navbar-1-left'>
                     <div className='navbar-1-contacts'>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=-20.01557109059909,57.58057550851208">20.0156° S, 57.5806° E </a>
+                        <a role="directions-link" href="https://www.google.com/maps/dir/?api=1&destination=-20.01557109059909,57.58057550851208">20.0156° S, 57.5806° E </a>
                     </div>
                 </div>
-                <Link to="/react-rails-restaurant-frontend/home" className='navbar-title' style={{display: isTitleAtTop ? "block": pathname !== "/react-rails-restaurant-frontend/home" ? "block" : "none"}}>Savoré</Link>
+                <div role="title-navigation" className='navbar-title' style={{display: isTitleAtTop ? "block": "none"}}>Savoré</div>
                 <div className='navbar-links'>
                     <div>
                         {currUser && currUser.admin ? (
@@ -27,12 +27,12 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
                             </>
                         ): null}
                     </div>
-                    <div className='navbar-links-flex' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
+                    <div className='navbar-links-flex' style={{display: "flex"}}>
                         <a href={menu} target='blank' className='booking-link'>
                             <span className='menu-link-text' >Menu</span>
                         </a>
                     </div>
-                    <div className='navbar-links-flex' style={{display: pathname !== "/react-rails-restaurant-frontend/home" ? "none" : "flex"}}>
+                    <div className='navbar-links-flex' style={{display: "flex"}}>
                         <div className='booking-link shake'>
                             <button onClick={() => { setActiveForm(true) }} className='main-button'>Book</button>
                         </div>

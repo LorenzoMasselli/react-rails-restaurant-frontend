@@ -37,23 +37,23 @@ function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose, onN
             },
             body: JSON.stringify(bookingData)
         })
-
+     
         if (response.ok) {
             onNewFormClose();
             onNewFormCloseHome();
             const { id, ...otherData } = await response.json();
             setBookings((prevBookings) => [
                 ...prevBookings,
-                { id, ...otherData },
+                { id, ...otherData },         
             ]);
-            if (currUser && currUser.admin) {
+            if (currUser && currUser.admin) {             
                 // navigate(`/react-rails-restaurant-frontend/bookings/`)
             } else {
                 navigate(`/react-rails-restaurant-frontend`)
-            }
-        } else {
-            console.log("An error occured")
-        }
+            }           
+        } else {           
+            console.log("An error occured")                       
+        }       
     }
 
     return (
