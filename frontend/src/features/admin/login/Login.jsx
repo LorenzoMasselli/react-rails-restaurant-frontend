@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './Login.css'
 import PropTypes from 'prop-types';
 
-const Login = ({setCurrUser, setShow}) =>{
+const Login = ({setCurrUser}) =>{
   const navigate = useNavigate()
   const formRef = useRef()
   const login = async (userInfo, setCurrUser)=>{

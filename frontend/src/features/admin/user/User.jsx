@@ -1,12 +1,12 @@
-import { useState } from "react";
-import Signup from "../Signup";
+// import { useState } from "react";
+// import Signup from "../Signup";
 import Login from '../login/Login'
 import Logout from '../logout/Logout'
 import PrivateText from '../PrivateText'
 import './User.css'
 
 const User = ({currUser, setCurrUser}) => {
-    const [show, setShow]=useState(true)
+    // const [show, setShow] = useState(true)
     if(currUser) 
         return (
             <div className="user">
@@ -20,11 +20,12 @@ const User = ({currUser, setCurrUser}) => {
         )
     return (
         <div>
-            { show?
-                <Login setCurrUser={setCurrUser} setShow={setShow}/>  
+            <Login setCurrUser={setCurrUser} />  
+            {/* { show?
+                <Login setCurrUser={setCurrUser} />  
                 :
                 <Signup setCurrUser={setCurrUser}  setShow={setShow} />
-            }
+            } */}
         </div>
     )
 }
