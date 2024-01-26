@@ -44,8 +44,7 @@ function BookingHomepage({ handleTitleAtTopChange, handleScrollPosition, handleH
         }
 
         slideInLeft('about');
-        slideInRight('events');
-        slideInLeft('chef-text');
+        slideInRight('chef');
     };
 
     const slideInLeft = (elemClass) => {
@@ -154,9 +153,9 @@ function BookingHomepage({ handleTitleAtTopChange, handleScrollPosition, handleH
                     </div>
                     <div className='about-container'>
                         <div className='about-images'>
-                            <img className='image-1-about' src={aboutImage} alt="Plate of food" />
-                            <img className='image-2-about' src={aboutImageTwo} alt="Plate of food" />
-                            <img className='image-3-about' src={aboutImageThree} alt="Plate of food" />
+                            <img className='image-1-about' src={aboutImage} alt="Plate of food" loading="lazy"/>
+                            <img className='image-2-about' src={aboutImageTwo} alt="Plate of food" loading="lazy"/>
+                            <img className='image-3-about' src={aboutImageThree} alt="Plate of food" loading="lazy"/>
                         </div>
                     </div>
                 </section>
@@ -173,7 +172,7 @@ function BookingHomepage({ handleTitleAtTopChange, handleScrollPosition, handleH
                     </div>
                     <div className='contact-container'>
                         <div className='contact'>
-                            <h3 className='header'><hr style={{width:"10%", border: "0.5px solid black", margin: "0"}}/>Hourse</h3>
+                            <h3 className='header'><hr style={{width:"10%", border: "0.5px solid black", margin: "0"}}/>Hours</h3>
                             <p className='contact-text bold'>Lunch</p>
                             <p className='contact-text'>12:00 - 16:00</p>
                             <p className='contact-text bold '>Dinner</p>
@@ -193,7 +192,7 @@ function BookingHomepage({ handleTitleAtTopChange, handleScrollPosition, handleH
                         <div className='chef-images-container'>
                             <div className='chef-images'>
                                 <p className='chef-title'>John Doe</p>
-                                <img className='image-1-chef' src={chef} alt="Chef" />
+                                <img className='image-1-chef' src={chef} alt="Chef" loading="lazy"/>
                             </div>
                         </div>
                     </div>

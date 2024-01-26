@@ -709,6 +709,7 @@ th {
     color: rgba(0, 0, 0, 0.9);
     font-style: italic;
     overflow: scroll;
+    margin: 0;
 }
 
 .name-search {

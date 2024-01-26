@@ -44,7 +44,7 @@ function BookingsTable({ bookings, confirmBooking, deleteBooking, currUser, setC
         setCurrentPage(1);
     }, [dateFilter, nameSearch]);
     
-    const itemsPerPage = 10; 
+    const itemsPerPage = 8; 
     
     const totalPages = Math.ceil(filteredBookings.length / itemsPerPage);
     
