@@ -40,6 +40,34 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
             const distanceToTopHomeTwo = homeTwoClientRect.top;
             handleHomeTwoAtTopChange(distanceToTopHomeTwo < 310)
         }
+
+        slideInLeft('about');
+        slideInRight('events');
+        slideInLeft('chef-text');
+    };
+
+    const slideInLeft = (elemClass) => {
+        const element = document.querySelector(`.${elemClass}`);
+        
+        if (element) {
+            const elementInView = element.getBoundingClientRect();
+            // console.log(`${elemClass} ${elementInView}`)
+            
+            if (elementInView.top > 500 && elementInView.top < window.innerHeight) {
+                element.classList.add('element-in-view-left');
+            }
+        }
+    };
+    const slideInRight = (elemClass) => {
+        const element = document.querySelector(`.${elemClass}`);
+        
+        if (element) {
+            const elementInView = element.getBoundingClientRect();
+            
+            if (elementInView.top > 500 && elementInView.top < window.innerHeight) {
+                element.classList.add('element-in-view-right');
+            }
+        }
     };
 
     useEffect(() => {
@@ -72,6 +100,8 @@ function BookingHomepage({isTitleAtTop, handleTitleAtTopChange, handleScrollPosi
             observer.disconnect();
         };
     }, []);
+
+
 
    
     return (

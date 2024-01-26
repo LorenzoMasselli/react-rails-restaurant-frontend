@@ -362,11 +362,42 @@
 }
 
 
-.home-1, .home-3, .home-4, .home-5 {
-    opacity: 0;
-    transition: opacity 0.5s;
-}
 
-.home-1.show, .home-3.show, .home-4.show, .home-5.show  {
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+
+  .element-in-view-left {
+    animation-play-state: running;
     opacity: 1;
-}
+    animation: slideInFromLeft 0.5s ease-out; 
+  }
+  
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+
+  .element-in-view-right {
+    animation-play-state: running;
+    opacity: 1;
+    animation: slideInFromRight 0.5s ease-out; 
+  }
+  
