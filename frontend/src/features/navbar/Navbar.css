@@ -9,7 +9,6 @@ border-top: 0px solid white;
 .navbar-title {
     font-family: 'Archivo Black', sans-serif;
     font-size: 25px;
-    padding-top: 0.7rem;
     text-decoration: none !important;
 }
 
@@ -57,8 +56,9 @@ border-top: 0px solid white;
 .navbar-1 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding-left: 16px;
+    padding-left: 30px;
     padding-right: 30px;
     transition: background-color 0.2s ease-in;
 }
@@ -76,6 +76,7 @@ border-top: 0px solid white;
 .navbar-links-flex {
     margin-left: 0px;
     margin-right: 0px;
+    height: fit-content;
 }
 
 .book-button {
@@ -117,16 +118,38 @@ border-top: 0px solid white;
 }
 
 .main-button {
-    background-color: black ;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 16px;
+    padding: 0.5rem 1.3rem;
+    background-color: rgb(109, 40, 40, 0);
+    border: solid 1.5px black;
+    color: black;
 }
 .main-button:hover {
     background-color: black ;
     color: white;
     text-decoration: none;
+    transition: 1s;
+    cursor: pointer;
+}
+.secondary-button {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 0.5rem 1.3rem;
+    background-color: rgb(109, 40, 40, 0);
+    border: solid 1.5px white;
+}
+.secondary-button:hover {
+    background-color: white ;
+    color: black;
+    text-decoration: none;
+    transition: 1s;
+    cursor: pointer;
 }
 
 .navbar-links {

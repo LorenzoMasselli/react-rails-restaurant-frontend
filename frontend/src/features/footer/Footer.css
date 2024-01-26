@@ -3,17 +3,23 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    color: black;
     padding: 3rem 4rem;
     gap: 4rem;
 }
 footer {
-    background-color: #edf2f4;
+    background: #F0F2F0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #000C40, #3a3a3a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1b1b1b, #3a3a3a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+footer a {
+    color: white;
 }
 
 footer hr {
     width: 92%;
-    color: #101923;
+    color: white;
 }
 .footer-bottom {
     padding: 0rem 3.6rem;

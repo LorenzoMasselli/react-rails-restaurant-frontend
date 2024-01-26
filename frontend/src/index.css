@@ -36,22 +36,6 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 24px;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #10192300;
-  color: white;
-  border: solid 1px white;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  background-color: white;
-    color: black;
-}
 
 
 @media (prefers-color-scheme: light) {
@@ -81,16 +65,5 @@ button:hover {
   }
   a:hover {
     color: black;
-  }
-  button {
-    background-color: #10192300;
-    color: white;
-    border: solid 1px black;
-    /* max-width: 140px; */
-    
-  }
-  button:hover {
-    background-color: black;
-    color: white;
   }
 }
