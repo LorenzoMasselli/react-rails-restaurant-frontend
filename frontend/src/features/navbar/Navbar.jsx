@@ -22,7 +22,7 @@ function Navbar({currUser, isTitleAtTop,isHomeTwoAtTop, setActiveForm  }) {
                         {currUser && currUser.admin ? (
                             <>
                                 <Link to="/react-rails-restaurant-frontend/bookings" className='booking-link'>
-                                    <span className='booking-link-text' style={{color: isHomeTwoAtTop ? "black": "white"}} >All bookings</span>
+                                    <span className='booking-link-text' style={{color: isHomeTwoAtTop ? "black": "white"}} >Dashboard</span>
                                 </Link>
                             </>
                         ): null}

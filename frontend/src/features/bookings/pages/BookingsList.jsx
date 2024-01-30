@@ -18,10 +18,8 @@ function BookingsList({currUser, setCurrUser}) {
     const [formattedDate, setFormattedDate] = useState('');
     const [activeDate, setActiveDate] = useState(new Date().toISOString().slice(0, 10))
     const [activeSection, setActiveSection] = useState('dashboard'); 
-    const [menuLabelsVisible, setMenuLabelsVisible] = useState(false);
     const navigate = useNavigate()
-    
-  
+
     //  fetch bookings from API
     useEffect(() => {
         async function loadBookings() {
@@ -68,12 +66,11 @@ function BookingsList({currUser, setCurrUser}) {
         //    }
         //  });
         //  console.log(emailCountMap)
-
-
     
-    const confirmBooking = async (booking) => {
+    
+    const confirmBooking = async (id) => {
         try {
-          const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${booking.id}`, {
+          const response = await fetch(`https://restaurant-rails-api-app-e94a97c38b74.herokuapp.com//api/v1/bookings/${id}`, {
             method: "PUT",
                 headers: {
                     "Content-type": "application/json",
@@ -85,7 +82,7 @@ function BookingsList({currUser, setCurrUser}) {
           if (response.ok) {
             setBookings((prevBookings) =>
             prevBookings.map((prevBooking) =>
-              prevBooking.id === booking.id ? { ...prevBooking, confirmed: true } : prevBooking
+              prevBooking.id === id ? { ...prevBooking, confirmed: true } : prevBooking
             ))
           } else {
             throw response
@@ -134,37 +131,32 @@ function BookingsList({currUser, setCurrUser}) {
     return (
       <div className='booking-container'>
         <div className='menu-options'>
+          <div>
+          <h4 style={{textAlign: "left", paddingLeft: "0.5rem", fontSize: "1.2rem", margin: "0 0 1rem 0"}}>Savoré</h4>
+            <ul>
+              <li>
+                <div className="menu-option-container" id={activeSection === "dashboard" ? "active-menu-dashboard-calendar" : null} style={{display: "flex"}}  onClick={() => setActiveSection('dashboard')}>
+                  <FontAwesomeIcon id='dashboard' icon={faShapes} size="sm" />
+                  <div className="menu-label" style={{display: "block"}}>
+                    Dashboard
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="menu-option-container" id={activeSection === "calendar" ? "active-menu-dashboard-calendar" : null} style={{display: "flex"}}  onClick={() => setActiveSection('calendar')}>
+                  <FontAwesomeIcon icon={faSquarePollHorizontal} size="sm" />
+                  <div className="menu-label" style={{display: "block"}}>
+                    Calendar
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
           <ul>
             <li>
-              <div className="menu-option-container" style={{display: menuLabelsVisible === true ? "flex": ""}} onClick={() => setMenuLabelsVisible(prevValue => !prevValue)}>
-              <FontAwesomeIcon icon={faBars} size='xl'/>
-                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
-                  Menu
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="menu-option-container" id={activeSection === "dashboard" ? "active-menu-dashboard-calendar" : null} style={{display: menuLabelsVisible === true ? "flex": ""}}  onClick={() => setActiveSection('dashboard')}>
-                <FontAwesomeIcon id='dashboard' icon={faShapes} style={{color: "#ffffff",}} size="xl" />
-                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
-                  Dashboard
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="menu-option-container" id={activeSection === "calendar" ? "active-menu-dashboard-calendar" : null} style={{display: menuLabelsVisible === true ? "flex": ""}}  onClick={() => setActiveSection('calendar')}>
-                <FontAwesomeIcon icon={faSquarePollHorizontal} style={{color: "#ffffff",}} size="xl" />
-                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
-                  Calendar
-                </div>
-              </div>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <div className="menu-option-container" style={{display: menuLabelsVisible === true ? "flex": ""}} onClick={() => navigate('/react-rails-restaurant-frontend/home')}>
-                <FontAwesomeIcon icon={faHouse} style={{color: "#ffffff",}} size="xl" />
-                <div className="menu-label" style={{display: menuLabelsVisible === true ? "block": "none"}}>
+              <div className="menu-option-container" style={{display: "flex"}} onClick={() => navigate('/react-rails-restaurant-frontend/home')}>
+                <FontAwesomeIcon icon={faHouse} size="sm" />
+                <div className="menu-label" style={{display: "block"}}>
                   Website
                 </div>
               </div>
@@ -173,8 +165,8 @@ function BookingsList({currUser, setCurrUser}) {
         </div>
         <div className='booking-right'>
           {activeSection === 'calendar' ? (
-            <div>
-              <h2 className="dashboard-heading">Calendar</h2>
+            <div className='calendar-container'>
+              <h2 className="table-container-heading">Calendar</h2>
               <BookingsCalendar bookings={bookings} activeDate={activeDate} formattedDate={formattedDate} backwardDate={backwardDate}
               forwardDate={forwardDate} />
             </div>

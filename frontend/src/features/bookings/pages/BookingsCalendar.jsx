@@ -134,7 +134,7 @@ function BookingsCalendar({ bookings, activeDate, formattedDate, backwardDate, f
                             </div>
                         </div>
                     </div>
-                    <div className="calendar-container">
+                    <div className="calendar-grid-container">
                         <table className="table-grid">
                             <tbody className="table-grid-body">
                                 <tr >

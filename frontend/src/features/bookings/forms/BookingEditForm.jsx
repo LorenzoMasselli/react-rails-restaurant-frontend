@@ -146,7 +146,7 @@ function BookingEditForm({bookingId, onFormClose, onUpdateBooking }) {
                     </div>
                     <div className="date-time-edit">
                         <div className="edit">
-                            <label htmlFor="confirmed-input" className='booking-confirmation-label'>Booking confirmation:</label>
+                            <label htmlFor="confirmed-input" className='booking-confirmation-label'>Confirmed:</label>
                             <select 
                                 type="text"
                                 id="confirmed-input"
@@ -158,7 +158,7 @@ function BookingEditForm({bookingId, onFormClose, onUpdateBooking }) {
                             </select>
                         </div>
                         <div className="edit">
-                            <label htmlFor="quantity-input">Number of people: </label>
+                            <label htmlFor="quantity-input">Guests: </label>
                             <select 
                                 type="text"
                                 id="quantity-input"

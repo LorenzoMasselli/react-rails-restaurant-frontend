@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './BookingForms.css'
 
 
-function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose, onNewFormCloseHome }) {
+function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose, onNewFormCloseHome, addNewBooking }) {
     const [name, setName] = useState("")
     const [quantity, setQuantity] = useState("")
     const [phone, setPhone] = useState("")
@@ -40,8 +40,9 @@ function NewBookingForm({currUser, setCurrUser, setBookings, onNewFormClose, onN
      
         if (response.ok) {
             onNewFormClose();
-            onNewFormCloseHome();
+            // onNewFormCloseHome();
             const { id, ...otherData } = await response.json();
+            addNewBooking({id, ...otherData});
             setBookings((prevBookings) => [
                 ...prevBookings,
                 { id, ...otherData },         
