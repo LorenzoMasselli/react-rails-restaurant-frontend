@@ -126,7 +126,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #101923;
+    background-color: #E4E7EB;
     z-index: 4;
     border-radius: 12px;
     padding: 1rem;
@@ -218,10 +218,7 @@
 
 .dot {
     width: 4px;
-    height: 4px;
-    background-color: rgb(0, 0, 0);
     border-radius: 100%;
-    background-color: white ;
 }
 
 

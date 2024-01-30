@@ -1,0 +1,44 @@
+.vertical-ellipsis {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.popover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    color: #6B7281;
+    font-size: 0.9rem;
+    font-weight: 500;
+    gap: 0.5rem;
+}
+
+.popover-container div:hover {
+    background-color: #e5e7eb;
+    cursor: pointer;
+}
+
+.popover-container div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1.5rem 0.5rem 0.7rem;
+    border-radius: 0.5rem;
+}
+
+.pop-edit {
+    padding-top: 0.1rem;
+}
+
+.popover {
+    box-shadow: none !important;
+}
+
+.css-3bmhjh-MuiPaper-root-MuiPopover-paper {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+}
+
+.ellipsis-container {
+    width: 4rem;
+}

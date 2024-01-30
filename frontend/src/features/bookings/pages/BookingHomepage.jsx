@@ -107,7 +107,7 @@ function BookingHomepage({ handleTitleAtTopChange, handleScrollPosition, handleH
    
     return (
         <div className='home'>
-            {activeForm ? <div className="home-new-booking-form"><NewBookingForm currUser={currUser} setCurrUser={setCurrUser} onNewFormClose={handleNewFormCloseHome}/><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ffffff",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
+            {activeForm ? <div className="home-new-booking-form"><NewBookingForm currUser={currUser} setCurrUser={setCurrUser} onNewFormClose={handleNewFormCloseHome}/><FontAwesomeIcon icon={faCircleXmark} style={{color: "black",}} className="form-close" onClick={() => setActiveForm(false)}/></div> : <></>}
             <section className='home-1'>
                 {/* <div className="home-1-overlay" style={{backgroundColor: overlayFormula}}> */}
                 <div className="home-1-overlay" style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>

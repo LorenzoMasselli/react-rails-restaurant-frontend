@@ -1,14 +1,14 @@
 import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faFacebook, faXTwitter} from '@fortawesome/free-brands-svg-icons'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 
 function Footer() {
-    
+    const { pathname } = useLocation();
 
     return (
-        <footer>
+        <footer style={{display: pathname == "/react-rails-restaurant-frontend/home" ? "block" : "none"}}>
             <div className="footer">
                 <div className='footer-left'>
                     <h2 className='footer-left-header'>Savoré</h2>
