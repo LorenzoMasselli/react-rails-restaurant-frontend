@@ -14,7 +14,13 @@ function BookingsTable({ bookings,confirmBooking, deleteBooking, currUser, setCu
     const [activeEditForm, setActiveEditForm] = useState(false);
     const [selectedBookingId, setSelectedBookingId] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [filtering, setFiltering] = useState("")
+    const [filtering, setFiltering] = useState("");
+    const [autoResetPage, setAutoResetPage] = useState(false)
+    
+
+    const handleConfirmBooking = (id) => {
+        confirmBooking(id);
+      };
     
     const columns = [
         {
@@ -55,7 +61,7 @@ function BookingsTable({ bookings,confirmBooking, deleteBooking, currUser, setCu
         {
             accessorKey: 'id',
             header: " ",
-            cell: (props) => <PopoverTable bookings={bookings} confirmBooking={confirmBooking} deleteBooking={deleteBooking} handleEditClick={handleEditClick} id={props.getValue()}/>
+            cell: (props) => <PopoverTable bookings={bookings} confirmBooking={handleConfirmBooking} deleteBooking={deleteBooking} handleEditClick={handleEditClick} id={props.getValue()}/>
         }
     ]
 
@@ -81,6 +87,10 @@ function BookingsTable({ bookings,confirmBooking, deleteBooking, currUser, setCu
         if (bookings) {
             setData(bookings);
         }
+        // if (bookings) {
+        //     const orderedBookings = bookings.sort((a, b) => new Date(a.date) - new Date(b.date))
+        //     setData(orderedBookings);
+        // }
     }, [bookings, data]);
 
     const table = useReactTable({
@@ -96,7 +106,16 @@ function BookingsTable({ bookings,confirmBooking, deleteBooking, currUser, setCu
             globalFilter: filtering
         },
         onGlobalFilterChanged: setFiltering,
+        autoResetPageIndex: false,
     });
+
+    useEffect(() => {
+        console.log(filtering)
+        if (filtering !== "") {
+            table.setPageIndex(0)
+            setCurrentPage(1)
+        }
+    }, [filtering, table])
 
     const paginationNext = () => {
         table.nextPage();

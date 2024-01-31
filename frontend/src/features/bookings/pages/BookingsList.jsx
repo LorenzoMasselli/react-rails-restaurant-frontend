@@ -80,10 +80,11 @@ function BookingsList({currUser, setCurrUser}) {
                 })
           });
           if (response.ok) {
-            setBookings((prevBookings) =>
+            const changedBookings = (prevBookings) => 
             prevBookings.map((prevBooking) =>
               prevBooking.id === id ? { ...prevBooking, confirmed: true } : prevBooking
-            ))
+            )
+            setBookings(changedBookings)          
           } else {
             throw response
           }
